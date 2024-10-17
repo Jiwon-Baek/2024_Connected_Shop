@@ -46,19 +46,21 @@ if __name__ == '__main__':
     for i in range(5):
         model['FS_' + str(i)] = Process(cfg, env, 'FS_' + str(i), model, monitor, None)
 
-    model['PMS' + str(i)] = Process(cfg, env, 'PMS', model, monitor, None)
+    model['PMS'] = Process(cfg, env, 'PMS', model, monitor, None)
 
     """ 변하지 않는 값 정의 """
-    jobtype = JobType(0)
+    jobtype = JobType(idx=0, name='Part')
 
     work_fs = WorkType(idx=0, name='FS')
     work_pms = WorkType(idx=1, name='PMS')
     for i in range(5):
-        o = OperationType(idx=i, name='FS_' + str(i), m_list=[model['M' + str(i)]])
+        o = OperationType(idx=i, name='FS_' + str(i),
+                          process = model['FS_' + str(i)],
+                          m_list=[model['M' + str(i)]])
         work_fs.add_operation_type(o)
 
     o_pms = OperationType(idx=0, name='PMS_',
-                          process_list = [model['PMS']],
+                          process = model['PMS'],
                           m_list=[model['M5'], model['M6'], model['M7']])
     work_pms.add_operation_type(o_pms)
 
@@ -67,9 +69,10 @@ if __name__ == '__main__':
 
     """ 변하는 값 (processing time 등) 정의 """
     # 4-3. Source 객체 생성
-    model['Source'] = Source(cfg, env, 'Source', model, monitor, job_type=jobtype, IAT=None, num_parts=1)
+    model['Source'] = Source(cfg, env, 'Source', model, monitor, job_type=jobtype, IAT=0, num_parts=10)
     # 4-4. sink 생성
     model['Sink'] = Sink(cfg, env, monitor)
+    # model['Buffer'] = Buffer(cfg, env, monitor)
 
     # 5. 시뮬레이션 실행
     env.run(5000)
@@ -81,11 +84,12 @@ if __name__ == '__main__':
 
     machine_log = read_machine_log(cfg.filepath)
     # 7. 간트차트 출력
-    gantt = Gantt(cfg, machine_log, len(machine_log), printmode=True, writemode=True)
+    gantt = Gantt(cfg, machine_log, len(machine_log), printmode=True, writemode=False)
     # gui = GUI(gantt)
     print()
-
-    total_simulation_time = model['Sink'].last_arrival  # 끝나는 시간
-    # utilization_rate = (total_utilization_time / total_simulation_time) * 100
-    # 기계 통계 출력
-    print_machine_statistics(model, total_simulation_time)
+    #
+    # total_simulation_time = model['Sink'].last_arrival  # 끝나는 시간
+    # # utilization_rate = (total_utilization_time / total_simulation_time) * 100
+    # # 기계 통계 출력
+    # print_machine_statistics(model, total_simulation_time)
+    print()

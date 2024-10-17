@@ -49,7 +49,8 @@ class Source(object):
         """
         # IAT에 따라 반복적으로 부품 생성하고 이를 generated_parts에 저장. 생성된 각 부품은 'Job' 객체로 생성. 부품에 대한 정보와 생성 이벤트가 monitor에 의해 기록.
         while self.rec < self.num_parts:
-            yield self.env.timeout(self.IAT)
+            # yield self.env.timeout(self.IAT)
+            yield self.env.timeout(0)
             # 1. Generate a Part Object
             part = Job(self.model, env=self.env, job_type=self.job_type, idx=self.rec)
             part.loc = self.name  # Update the part's current location
@@ -62,12 +63,12 @@ class Source(object):
             self.generated_parts.put(part)
             # 여기에 저장
             self.rec += 1
-            print("rec is " + str(self.rec))
+            # print("rec is " + str(self.rec))
 
             # 3. Record through monitor class
             self.monitor.record(time=self.env.now, process=self.name, machine=None,
                                 part_name=part.name,
-                                event="Part" + str(self.name[-1]) + " Created")
+                                event="Part" + str(self.rec) + " Created")
 
             # 4. Print through Console (Optional)
 
@@ -94,16 +95,18 @@ class Source(object):
         while True:
             # 1. Get a part from the list of generated parts
             part = yield self.generated_parts.get()
-            print('OK?')
-            part.step += 1  # this makes part.step to 0
+            # print('OK?')
+            part.current_work += 1  # this makes part.current_work to 0
+            part.step[part.current_work] += 1  # this makes part.step to 0
             self.monitor.record(self.env.now, self.name, machine=None,
                                 part_name=part.name,
                                 event="Routing Start")
 
             # 2. Check the next process
             # The machine is not assigned yet and is to be determined further, in the 'Process' class function
-            next_process = part.op_list[part.step].process  # i.e. model['시운전']
-            print('Next Process of ', part.name,' is:', part.op_list[part.step].process.name)
+            next_op = part.op_list[part.current_work][part.step[part.current_work]]
+            next_process = next_op.process  # i.e. model['시운전']
+            print('First Process of ', part.name,' is:', next_process.name)
             # 3. Put the part into the in_part queue of the next process
             # This 'yield' enables handling Process of limited queue,
             # by pending the 'put' call until the process is available for a new part

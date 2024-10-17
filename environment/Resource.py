@@ -38,7 +38,7 @@ class Machine(object):
         self.operation_count = 0  # 추가: 처리한 operation 수를 저장하는 변수
         self.transportation_time = 0 # 운송시간 추적
 
-    def expected_turn_idle(self):
+    def expected_turn_idle(self, _now):
         """
         기계가 다음 유휴 상태가 될 예상 시간을 계산. 대기열에 있는 모든 작업의 처리 시간을 고려하여 계산함.
 
@@ -46,11 +46,13 @@ class Machine(object):
             - `float`: 기계가 다음 유휴 상태가 될 예상 시간.
         """
         # 기계가 다음 유휴 상태가 될 예상 시간 계산.
-        eti = self.turn_idle
+        eti = max(self.turn_idle, _now)
+
         for op in self.queue:
             eti += op.process_time_determined
             # turn idle 값에 대기열 있는 모든 작업의 처리시간을 더하여 계산됨.
         return eti
+
 class Worker(object):
     """    
     작업자를 나타내는 클래스

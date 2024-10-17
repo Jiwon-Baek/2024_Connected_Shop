@@ -17,16 +17,16 @@ simmode = ''
 
 # Define a fixed color map for the jobs
 COLOR_MAP = {
-    'J-0': '#3498db',  # light blue
-    'J-1': '#2ecc71',  # light green
-    'J-2': '#e74c3c',  # light red
-    'J-3': '#f1c40f',  # yellow
-    'J-4': '#9b59b6',  # purple
-    'J-5': '#34495e',  # dark blue
-    'J-6': '#e67e22',  # orange
-    'J-7': '#1abc9c',  # turquoise
-    'J-8': '#f39c12',  # dark yellow
-    'J-9': '#7f8c8d'   # gray
+    'Part_0': '#3498db',  # light blue
+    'Part_1': '#2ecc71',  # light green
+    'Part_2': '#e74c3c',  # light red
+    'Part_3': '#f1c40f',  # yellow
+    'Part_4': '#9b59b6',  # purple
+    'Part_5': '#34495e',  # dark blue
+    'Part_6': '#e67e22',  # orange
+    'Part_7': '#1abc9c',  # turquoise
+    'Part_8': '#f39c12',  # dark yellow
+    'Part_9': '#7f8c8d'   # gray
 }
 
 def Gantt(cfg, result, num, printmode=True, writemode=False):
@@ -40,7 +40,7 @@ def Gantt(cfg, result, num, printmode=True, writemode=False):
     df = df.sort_values(by='plot_order')
 
     # Ensure the color map uses fixed colors
-    df['color'] = df['Job'].apply(lambda j: COLOR_MAP[j.split('_')[0]])
+    df['color'] = df['Job'].apply(lambda j: COLOR_MAP[j])
 
     machine_list = df['Machine'].unique()
 

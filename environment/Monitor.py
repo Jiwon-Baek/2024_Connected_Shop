@@ -79,7 +79,7 @@ def monitor_console(time, part, object='Entire Process', command=''):
     # console_mode : boolean
     # object : 'single part' for default
     
-    operation = part.op_list[part.step]
+    operation = part.op_list[part.current_work][part.step[part.current_work]]
     command = " "+command+" "
     if object == 'Single Part':
         # 단일 부품에 대한 정보만 출력. 특정 부품의 현재 공정과 그 공정이 실행되는 기계이름 출력
@@ -93,30 +93,30 @@ def monitor_console(time, part, object='Entire Process', command=''):
     elif object == 'Entire Process':
         # 전체 공정에 대한 정보 출력. 모든 부품과 관련된 모든 공정을 시간 순으로 출력하여 전체제조과정 흐름 파악
         print(str(time), '\t', operation.name, command, operation.machine_determined.name)
-    elif object == 'Machine':
-        # 기계 별로 이벤트 정보를 출력. 각 기계에서 실행되고 있는 공정의 이름을 각기 다른 포맷으로 출력, 어떤 기계가 어떤 작업하는지 쉽게 구분.
-        print_by_machine(time, part)
+    # elif object == 'Machine':
+    #     # 기계 별로 이벤트 정보를 출력. 각 기계에서 실행되고 있는 공정의 이름을 각기 다른 포맷으로 출력, 어떤 기계가 어떤 작업하는지 쉽게 구분.
+    #     print_by_machine(time, part)
 
 
-def print_by_machine(env, part):
-    """
-    기계 별로 이벤트 정보를 출력하는 함수
-    :: 각 기계에서 실행되고 있는 공정의 이름을 포맷에 맞게 출력함
-
-    ### Args:
-        - `env (object)`: 현재 환경 또는 시뮬레이션 객체, 현재 시간 제공
-        - `part (object)`: 현재 작업 중인 부품에 대한 정보
-    """
-    if part.op_list[part.step].machine_list == 0:
-        print(str(env.now), '\t\t\t\t', str(part.op_list[part.step].name))
-        # \t는 tap 의미.
-    elif part.op_list[part.step].machine_list == 1:
-        print(str(env.now), '\t\t\t\t\t\t\t', str(part.op_list[part.step].name))
-    elif part.op_list[part.step].machine_list == 2:
-        print(str(env.now), '\t\t\t\t\t\t\t\t\t\t', str(part.op_list[part.step].name))
-    elif part.op_list[part.step].machine_list == 3:
-        print(str(env.now), '\t\t\t\t\t\t\t\t\t\t\t\t\t', str(part.op_list[part.step].name))
-    elif part.op_list[part.step].machine_list == 4:
-        print(str(env.now), '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t', str(part.op_list[part.step].name))
-    else:
-        print()
+# def print_by_machine(env, part):
+#     """
+#     기계 별로 이벤트 정보를 출력하는 함수
+#     :: 각 기계에서 실행되고 있는 공정의 이름을 포맷에 맞게 출력함
+#
+#     ### Args:
+#         - `env (object)`: 현재 환경 또는 시뮬레이션 객체, 현재 시간 제공
+#         - `part (object)`: 현재 작업 중인 부품에 대한 정보
+#     """
+#     if part.op_list[part.step].machine_list == 0:
+#         print(str(env.now), '\t\t\t\t', str(part.op_list[part.step].name))
+#         # \t는 tap 의미.
+#     elif part.op_list[part.step].machine_list == 1:
+#         print(str(env.now), '\t\t\t\t\t\t\t', str(part.op_list[part.step].name))
+#     elif part.op_list[part.step].machine_list == 2:
+#         print(str(env.now), '\t\t\t\t\t\t\t\t\t\t', str(part.op_list[part.step].name))
+#     elif part.op_list[part.step].machine_list == 3:
+#         print(str(env.now), '\t\t\t\t\t\t\t\t\t\t\t\t\t', str(part.op_list[part.step].name))
+#     elif part.op_list[part.step].machine_list == 4:
+#         print(str(env.now), '\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t', str(part.op_list[part.step].name))
+#     else:
+#         print()
