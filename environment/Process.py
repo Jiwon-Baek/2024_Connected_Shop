@@ -49,6 +49,8 @@ class Process(object):
         # simpy.FilterStore: 필터링 기능을 제공하는 저장소, 특정 조건 만족하는 항목만 처리. / inf: 버퍼크기 무한
 
         self.work_waiting = [self.env.event() for i in range(self.cfg.num_job)]
+
+        self.ready_to_open_buffer = self.env.event()
         # 작업 대기 이벤트 생성, 작업의 시작을 제어할 수 있음.
 
         # 각 작업이 시작되기 전에 대기해야하는 이벤트들을 저장하는 리스트.
@@ -148,6 +150,8 @@ class Process(object):
 
         # 4. Send(route) to the out_part queue for routing and update the machine availability
         yield self.out_buffer.put(part)
+        self.ready_to_open_buffer.succeed()
+        self.ready_to_open_buffer = self.env.event()
         # 완료된 부품을 출력버퍼로 이동
         yield machine.availability.get()
         # 기계 사용 상태 해체
@@ -231,8 +235,8 @@ class Process(object):
             machine.queue.append(operation)
             # 선택된 기계의 큐에 작업 추가.
             eti = machine.expected_turn_idle(self.env.now)
-            print('%d \t%s have %d operations in queue... turning idle at %d... \tfinish working at %d' %
-                (self.env.now, machine.name, len(machine.queue), machine.turn_idle, eti))
+            # print('%d \t%s have %d operations in queue... turning idle at %d... \tfinish working at %d' %
+            #     (self.env.now, machine.name, len(machine.queue), machine.turn_idle, eti))
 
             ############### 3. work() 인스턴스 생성 / 작업이 실제로 기계에서 작업시작.
             self.env.process(self.work(part, machine, pt))
@@ -508,13 +512,20 @@ class Process(object):
                 part.loc = next_process.name
                 # 부품의 현재 위치 업데이트
             else:
-                part.current_work += 1
-                if part.current_work != len(part.step):
-                    part.step[part.current_work] = 0
-                    next_process = part.op_list[part.current_work][part.step[part.current_work]].process  # i.e. model['Process0']
-                    yield next_process.in_buffer.put(part)
+
+                # 현재 work의 마지막 공정이 끝남
+
+                # 1. 만약 마지막 Work 가 아니라면
+                if part.current_work != len(part.step) - 1:
+
+                    # part.step[part.current_work] = 0
+                    buffer = part.model['Buffer']
+                    # next_process = part.op_list[part.current_work][part.step[part.current_work]].process  # i.e. model['Process0']
+                    yield buffer.buffer.put(part)
                     # 다음 프로세스의 입력 버퍼로 부품 이동.
-                    part.loc = next_process.name
+                    part.loc = buffer.name
+
+                # 2. 만약 마지막 work 였다면
                 else:
                     self.model['Sink'].put(part)
                 # 모든 공정 완료시 최종 목적지로 부품 이동.

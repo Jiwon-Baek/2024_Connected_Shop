@@ -106,7 +106,7 @@ class Source(object):
             # The machine is not assigned yet and is to be determined further, in the 'Process' class function
             next_op = part.op_list[part.current_work][part.step[part.current_work]]
             next_process = next_op.process  # i.e. model['시운전']
-            print('First Process of ', part.name,' is:', next_process.name)
+            # print('First Process of ', part.name,' is:', next_process.name)
             # 3. Put the part into the in_part queue of the next process
             # This 'yield' enables handling Process of limited queue,
             # by pending the 'put' call until the process is available for a new part

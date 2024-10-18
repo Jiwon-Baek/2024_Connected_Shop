@@ -21,6 +21,7 @@ from environment.Process import *
 from environment.Source import Source
 from environment.Sink import Sink
 from environment.Part import *
+from environment.Buffer import *
 from environment.Resource import Machine
 from environment.Monitor import Monitor
 from postprocessing.PostProcessing import *
@@ -47,7 +48,7 @@ if __name__ == '__main__':
         model['FS_' + str(i)] = Process(cfg, env, 'FS_' + str(i), model, monitor, None)
 
     model['PMS'] = Process(cfg, env, 'PMS', model, monitor, None)
-
+    model['Buffer'] = Buffer(cfg, env, 'Buffer', model, monitor)
     """ 변하지 않는 값 정의 """
     jobtype = JobType(idx=0, name='Part')
 
@@ -55,12 +56,12 @@ if __name__ == '__main__':
     work_pms = WorkType(idx=1, name='PMS')
     for i in range(5):
         o = OperationType(idx=i, name='FS_' + str(i),
-                          process = model['FS_' + str(i)],
+                          process=model['FS_' + str(i)],
                           m_list=[model['M' + str(i)]])
         work_fs.add_operation_type(o)
 
     o_pms = OperationType(idx=0, name='PMS_',
-                          process = model['PMS'],
+                          process=model['PMS'],
                           m_list=[model['M5'], model['M6'], model['M7']])
     work_pms.add_operation_type(o_pms)
 

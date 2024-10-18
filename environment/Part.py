@@ -140,7 +140,7 @@ class Operation(object):
         if self.process.name[0] == 'F':
             self.process_time = np.random.randint(low=5, high=10, size=len(self.machine_available))
         elif self.process.name[0] == 'P':
-            self.process_time =  np.random.randint(low=20, high=30, size=len(self.machine_available))
+            self.process_time =  np.random.randint(low=30, high=40, size=len(self.machine_available))
 
 
 
