@@ -48,7 +48,7 @@ def read_machine_log(_filepath):
 
     return data
 
-def generate_unity_log(_filepath):
+def generate_unity_log(_filepath, num_blocks=10):
     data = pd.read_csv(_filepath)
     data = data.drop(data.columns[0], axis=1)
     with open(_filepath.split('.')[0]+'_Unity_log.csv', 'w') as f:
@@ -65,7 +65,7 @@ def generate_unity_log(_filepath):
                    'M6': 7,
                    'M7': 8}
 
-    for i in range(10):
+    for i in range(num_blocks):
         for p in process:
             print(p)
             j = data[(data.Part == 'Part_' + str(i)) & (data.Process == p)]

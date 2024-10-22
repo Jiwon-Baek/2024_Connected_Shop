@@ -32,7 +32,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 if __name__ == '__main__':
-
+    num_blocks = 20
     """ 모델 준비 """
     # 1. simpy 환경 생성
     env = simpy.Environment()
@@ -72,7 +72,7 @@ if __name__ == '__main__':
 
     """ 변하는 값 (processing time 등) 정의 """
     # 4-3. Source 객체 생성
-    model['Source'] = Source(cfg, env, 'Source', model, monitor, job_type=jobtype, IAT=0, num_parts=20)
+    model['Source'] = Source(cfg, env, 'Source', model, monitor, job_type=jobtype, IAT=0, num_parts=num_blocks)
     # 4-4. sink 생성
     model['Sink'] = Sink(cfg, env, monitor)
     # model['Buffer'] = Buffer(cfg, env, monitor)
@@ -86,7 +86,7 @@ if __name__ == '__main__':
     # it is necessary to terminate all the process at (SIMUL_TIME -1) and add up the process time to all machines
 
     machine_log = read_machine_log(cfg.filepath)
-    unity_log = generate_unity_log(cfg.filepath)
+    unity_log = generate_unity_log(cfg.filepath, num_blocks)
     # 7. 간트차트 출력
     gantt = Gantt(cfg, machine_log, len(machine_log), printmode=True, writemode=False)
     # gui = GUI(gantt)
