@@ -51,6 +51,9 @@ class Sink(object):
         """
         # 이 메서드는 부품이 sink로 전송될때 호출. 부품의 도착을 처리하고 관련 정보 기록.
         self.parts_rec += 1
+
+        part.process.availability.get()
+        print("part %s 가 sink에 도달했으므로 이전 process인 %s 의 사용권 해지" % (part.name, part.process.name))
         # 도착한 부품 수 증가
         self.last_arrival = self.env.now
         # 마지막 도착 시간 업데이트

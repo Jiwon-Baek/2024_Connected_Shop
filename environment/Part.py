@@ -170,6 +170,8 @@ class Job(object):
         self.model = model
         self.env = env
         self.job_type = job_type
+        self.machine = None
+        self.process = None
         self.idx = idx
         self.due_date = due_date
         self.release_date = release_date
@@ -198,6 +200,9 @@ class Job(object):
         self.generate_work()
         self.generate_operation()
         # 작업 유형에 정의된 공정 수와 정보를 바탕으로 작업에 필요한 'operation' 객체를 생성하고 초기화.
+
+    def set_process(self, p):
+        self.process = p
 
     def generate_work(self):
         for j, _work_type in enumerate(self.job_type.work_list):

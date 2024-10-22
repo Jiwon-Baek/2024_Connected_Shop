@@ -45,10 +45,12 @@ if __name__ == '__main__':
     for i in range(8):
         model['M' + str(i)] = Machine(env, i, 'M' + str(i))
     for i in range(5):
-        model['FS_' + str(i)] = Process(cfg, env, 'FS_' + str(i), model, monitor, None)
-
-    model['PMS'] = Process(cfg, env, 'PMS', model, monitor, None)
+        model['FS_' + str(i)] = Process(cfg, env, 'FS_' + str(i), model, monitor, None, _machine_list=[model['M'+str(i)]])
+    pms_machine_list = [model['M5'], model['M6'], model['M7']]
+    model['PMS'] = Process(cfg, env, 'PMS', model, monitor, None, _machine_list = pms_machine_list)
     model['Buffer'] = Buffer(cfg, env, 'Buffer', model, monitor)
+
+
     """ 변하지 않는 값 정의 """
     jobtype = JobType(idx=0, name='Part')
 

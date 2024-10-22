@@ -20,7 +20,7 @@ sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(
 
 
 class Process(object):
-    def __init__(self, _cfg, _env, _name, _model, _monitor, _transportation_times):
+    def __init__(self, _cfg, _env, _name, _model, _monitor, _transportation_times, _machine_list = None):
         """
         프로세스 객체 초기화 메서드
         :: 주어진 매개변수들을 사용하여 프로세스 객체를 초기화함. 시뮬레이션 환경, 프로세스 이름, 모델, 모니터 객체, 설정 파일 및 운송 시간 데이터를 설정
@@ -50,24 +50,19 @@ class Process(object):
 
         self.work_waiting = [self.env.event() for i in range(self.cfg.num_job)]
 
-        self.ready_to_open_buffer = self.env.event()
-        # 작업 대기 이벤트 생성, 작업의 시작을 제어할 수 있음.
+        if _machine_list is not None:
+            self.machine_list = _machine_list
+            self.availability = simpy.FilterStore(_env, capacity=len(self.machine_list))
+        else:
+            self.machine_list, self.machine_available = None, None
 
-        # 각 작업이 시작되기 전에 대기해야하는 이벤트들을 저장하는 리스트.
-        # 이 리스트의 길이는 cfg.num_job과 같음. 각 요소는 event로 생성된 이벤트 객체.
-
-
-        # 시뮬레이션 환경에 프로세스 등록
-        # get run functions in class
         _env.process(self.run())
         _env.process(self.to_next_process())
-
 
     # Class Description
     # Process.run() : 작업 하나를 골라서 env.process()에 work를 추가시킴
     # Process.work() : machine의 사용권을 얻고, timeout이 일어나는 부분
     # Process.to_next_process() : 다음 process로 전달
-
 
     def work(self, part, machine, pt):
         """
@@ -86,20 +81,28 @@ class Process(object):
             - `yield`를 사용하여 시뮬레이션의 이벤트를 처리함
         """
         # 밑에 run 함수에서 불러옴.
-
         # 특정 부품에 대한 실제 작업을 수행. 선택된 기계에서 부품을 처리하는 로직을 담고 있으며, 작업시작과 완료 시 모니터에 이벤트 기록.
         # 작업 선행조건 만족시까지 대기 후, 기계 사용가능 여부 확인하고 작업 시작, 완료되면 사용된 기계 상태 업데이트 후 부품을 출력 버퍼로 이동.
         # 1. Check if former operations are all finished & requirements are satisfied
         operation = part.op_list[part.current_work][part.step[part.current_work]]
-        # op 리스트 안에 각 operation에 대한 모든 정보 담겨 있음.
 
         # 작업이 큐에 들어가는 시간 기록
         operation.queue_entry_time = self.env.now
-
         yield operation.requirements
+        # print("operation %s 의 모든 선행조건이 완료되었습니다." % operation.name)
         # 선행조건이 충족되길 기다림.
         yield machine.availability.put('using')
-        # 기계의 사용 가능 상태를 체크하고 사용 상태로 변경
+        print("%d\t%s 가 machine %s 의 사용권 획득" % (self.env.now, operation.name, machine.name))
+
+        # 아직 원래 process임
+        if part.process is not None: # Sink 에서 출발할 때에는 part.process 가 None 일 수 있음
+            print("%d\t기존에 part %s의 process는 %s 입니다." % (self.env.now,part.name, part.process.name))
+            yield part.process.availability.get()
+            print("%d\t이전 process인 %s의 사용권 반환" % (self.env.now,part.process.name))
+            if part.process.name == 'Buffer':
+                print('break')
+        part.set_process(self)
+        print("%d\t%s 의 process를 %s 로 바꿨습니다" % (self.env.now,part.name, part.process.name))
 
         # 작업이 큐에서 나오는 시간 기록 및 대기 시간 계산
         wait_end_time = self.env.now
@@ -108,14 +111,6 @@ class Process(object):
         # print(f"{machine.name}의 {machine.operation_count}번째 wait time은 {wait_time}이다.")
         machine.total_waiting_time += wait_time
 
-        # tpt 반영
-        # if part.step[part.current_work] > 0:
-        #     prev_machine = part.op_list[part.step - 1].machine_determined.name
-        #     trans_time = self.tpt.loc[prev_machine, machine.name]
-        #     # loc: 특정 행열 선택.
-        #     print(f"Moving from {prev_machine} to {machine.name}. It will take {trans_time} hours.")
-        #     yield self.env.timeout(trans_time)
-        #     machine.transportation_time += trans_time
         # 2. Update machine status
         # 다른 class object들에게 알려주기 위해 상태와 가장 빠른 종료시간을 기록
         # TODO : work()를 발생시킬 때, 해당 machine의 내부 변수에
@@ -136,100 +131,44 @@ class Process(object):
             monitor_console(self.env.now, part, self.cfg.OBJECT, "Started on")
 
         yield self.env.timeout(pt)
-        # 작업시간동안 대기. process time
+        print("%d\t%s 가 machine %s 에서 %d 만큼 작업되어 현재 시간이 %d가 됨"
+              % (self.env.now,part.name, machine.name, pt, self.env.now))
         self.monitor.record(self.env.now, self.name, machine=machine.name,
                             part_name=part.name, event="Finished") # 작업 완료 기록
         if self.cfg.CONSOLE_MODE:
             monitor_console(self.env.now, part, self.cfg.OBJECT, "Finished on")
 
         machine.util_time += pt
-        # 기계 사용시간 누적
         machine.workingtime_log.append(pt)
         machine.waiting_time += self.env.now - part.start_waiting_time
-        # 대기시간 기록
 
         # 4. Send(route) to the out_part queue for routing and update the machine availability
         yield self.out_buffer.put(part)
-        self.ready_to_open_buffer.succeed()
-        self.ready_to_open_buffer = self.env.event()
-        # 완료된 부품을 출력버퍼로 이동
         yield machine.availability.get()
+        print("%d\t%s가 machine %s의 사용권 반환" % (self.env.now,part.name, machine.name))
+
         # 기계 사용 상태 해체
         machine.status = 'Idle'
-        # 기계 상태를 유휴 상태로 변경
 
     def run(self):
-        """
-        공정의 주 실행 루프를 정의하는 메서드.
-
-        이 메서드는 무한 루프를 통해 지속적으로 작업을 받아 처리하고, 적절한 기계를 선택하여 작업을 실행
-        입력 버퍼에서 작업 부품을 가져와 기계를 선택하고, 선택된 기계에서 작업을 수행하도록 합니다. 작업이 완료되면 출력 버퍼로 부품을 이동시킴
-
-        ### Yields:
-            - `part (object)`: 입력 버퍼에서 가져온 작업 부품 객체. 이 객체는 처리할 작업 단계와 관련된 정보를 가지고 있음
-        """
-
-        """
-        [생각해 볼 만한 이슈]
-        1. 현재는 scheduler가 아무 job도 고르지 않기를 선택하는 경우에 대한 대응이 불가능함
-
-        2. 현재는 work()를 발생시키는 시점이 실제 해당 job의 operation의 실행 시점과 다름.
-        따라서, machine의 availability 등을 확인하고 dispatching하는 것이 불가능함.
-        (추가) 이를 고려하기 위해 idle한 machine이 있는 job들만을 대상으로
-        work()를 발생시키는 것을 고려해 볼 수 있음
-
-        2-1. 위의 방법대로 했을 때, idle한 machine이 있다는 것을 근거로 work()를 발생시킨다는 것은
-        사실상 machine selection의 자유도를 주지 않는 것과 같은 결과를 낳을 수 있음.
-        (해결책) 일단 machine buffer에 넣어놓고 나중에 machine이 결정하도록 해도 된다. (=>multi-agent)
-        (안벽문제의 경우 하루 delay되는 비용이 커서 machine 선택에 자유도를 부여하지 않고
-        그냥 일단 들어가게끔 했음.)
-
-        2-2. 궁극적으로는 이런 점까지 고려해서 '적절한 job을 잘 고르는 것'을 agent가 학습하도록 할 수도 있음
-
-        2-3. 아니면 self.run()의 제어를 while True에 맡기는 것이 아니라 env.step()으로 제어해 가면서
-        machine이 idle해지는 유의미한 timestep에 work()를 발생시키도록 하는 방법을 생각해볼 수 있음.
-        이때 동일 timestep에 벌어지는 사건들에 우선순위를 두어 제어해야 한다면, env._queue() 등을 사용할 수 있다.
-
-        3. 만약에 Process1과 Process2에서 모두 쓸 수 있는 machine이 idle해진 상황이라면,
-        두 Process의 run()에서 각자 동일한 이유로 하나의 machine에 2개의 job이 줄을 서게 될 수도 있음.
-        => 비효율성 발생 가능
-
-        4. 아예 다른 방법은, Machine이 idle해질 때마다, 가능한 모든 process와 그에 속한 queue에
-        대기중인 job들을 보고 고르게 하는 것임. (JSSP_V1, event queue 방법)
-        """
 
         while True:
             ############### 1. Job의 결정
             # TODO : call agent for selecting a part
             part = yield self.in_buffer.get()
-            # 입력 버퍼에서 작업 부품 가져옴.
             part.start_waiting_time = self.env.now
-            # 부품이 큐에 들어온 시간 기록.
 
             ############### 2. Machine의 결정
             # TODO : call agent for selecting a machine
             operation = part.op_list[part.current_work][part.step[part.current_work]]
-            # operation.queue_entry_time = self.env.now
-            # 현재 작업 단계 가져옴.
-            # if isinstance(operation.machine_available, list):  # 만약 여러 machine에서 작업 가능한 operation이라면
+
             if len(operation.machine_available) > 1:  # 만약 여러 machine에서 작업 가능한 operation이라면
-                # machine, pt = self.heuristic_LIT(operation)
-                # machine, pt = self.heuristic_LUT(operation)
-                # machine, pt = self.heuristic_SPT(operation)
-                # machine, pt = self.heuristic_LPT(operation)
-                # machine, pt = self.heuristic_LOR(operation)
-                # machine, pt = self.heuristic_MOR(operation)
-
-
-                # machine, pt = self.heuristic_MWR(operation)
-                # machine, pt = self.heuristic_LWR(operation)
                 machine, pt = self.heuristic_FJSP(operation)
-                # 다양한 기계에서 작업가능한 경우 휴리스틱 FJSP 함수로 최적 기계 선택
-
             else:  # 만약 단일 기계에서만 작업 가능한 operation이라면
                 machine, pt = self.heuristic_JSSP(operation)
 
             # 결정된 사항을 기록해 둠
+            part.machine = machine
             operation.machine_determined = machine
             operation.process_time_determined = pt
             machine.queue.append(operation)
@@ -506,8 +445,13 @@ class Process(object):
                 next_process = part.op_list[part.current_work][part.step[part.current_work]].process  # i.e. model['Process0']
                 # 다음 공정의 요구사항을 충족시키면 다음 공정을 가져옴.
 
+                # 다음 공정의 완료여부 확인 필요 -> 빈자리 날때까지 대기
+                yield next_process.availability.put('using')
+                # print('Next process', next_process.name , 'Opened!')
                 # The machine is not assigned yet (to be determined further)
                 yield next_process.in_buffer.put(part)
+
+                # print(part.machine.name,'turned ready successfully')
                 # 다음 프로세스의 입력 버퍼로 부품 이동.
                 part.loc = next_process.name
                 # 부품의 현재 위치 업데이트
@@ -517,11 +461,11 @@ class Process(object):
 
                 # 1. 만약 마지막 Work 가 아니라면
                 if part.current_work != len(part.step) - 1:
-
                     # part.step[part.current_work] = 0
                     buffer = part.model['Buffer']
                     # next_process = part.op_list[part.current_work][part.step[part.current_work]].process  # i.e. model['Process0']
                     yield buffer.buffer.put(part)
+                    yield buffer.availability.put('using')
                     # 다음 프로세스의 입력 버퍼로 부품 이동.
                     part.loc = buffer.name
 
@@ -529,3 +473,4 @@ class Process(object):
                 else:
                     self.model['Sink'].put(part)
                 # 모든 공정 완료시 최종 목적지로 부품 이동.
+

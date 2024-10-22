@@ -113,6 +113,7 @@ class Source(object):
 
             if self.cfg.CONSOLE_MODE:
                 print(part.name, "is going to be put in ", next_process.name)
+            yield next_process.availability.put('using') # 사용권 획득
             yield next_process.in_buffer.put(part)
             part.loc = next_process.name
 

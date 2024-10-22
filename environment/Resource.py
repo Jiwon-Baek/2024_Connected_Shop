@@ -18,6 +18,8 @@ class Machine(object):
         self.name = name
         self.capacity = 1
         self.availability = simpy.Store(env, capacity=self.capacity)
+        self.ready_to_open = env.event()
+        # self.ready_to_open.succeed()
         self.status = 'Idle'  # 'Working' or 'Idle'
 
         # 다음 Idle 상태가 되는 시점을 기록
