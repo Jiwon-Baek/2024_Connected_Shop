@@ -54,8 +54,11 @@ def generate_unity_log(_filepath, num_blocks=10):
     with open(_filepath.split('.')[0]+'_Unity_log.csv', 'w') as f:
         # column명 작성
         f.write('Job,Machine,Move,Start,Finish\n')
-    process = ['FS_0', 'FS_1', 'FS_2', 'FS_3', 'FS_4', 'Buffer', 'PMS']
-    process_map = {'M0': 0,
+    process = ['FS0', 'FS1', 'FS2', 'FS3', 'FS4', 'Buffer', 'PMS']
+    # process = ['Source','FS0', 'FS1', 'FS2', 'FS3', 'FS4', 'Buffer', 'PMS']
+    process_map = {
+        # 'Source':'S',
+                   'M0': 0,
                    'M1': 1,
                    'M2': 2,
                    'M3': 3,
@@ -77,3 +80,15 @@ def generate_unity_log(_filepath, num_blocks=10):
 
             with open(_filepath.split('.')[0]+'_Unity_log.csv', 'a') as f:
                 f.write('%s,%s,%.2f,%.2f,%.2f\n' % (str(i), mapped, move, start, finish))
+
+if __name__ == '__main__':
+    from visualization.Gantt import Gantt
+    from cfg_local import Configure
+
+    cfg = Configure()
+    machine_log = read_machine_log('../result/2024-10-22-18-13-13.csv')
+    generate_unity_log('../result/2024-10-22-18-13-13.csv', 100)
+    # 7. 간트차트 출력
+    gantt = Gantt(cfg, machine_log, len(machine_log), printmode=True, writemode=False)
+    # gui = GUI(gantt)
+    print()

@@ -6,7 +6,7 @@ from adodbapi.process_connect_string import process
 
 
 class JobType:
-    def __init__(self, idx=None, name=None):
+    def __init__(self, idx=None, name=None, preset = None):
         """
         Given to Source to create jobs
 
@@ -19,6 +19,7 @@ class JobType:
         self.idx = idx  # int or any symbols
         self.name = name  # int or any symbols
         self.work_list = []  # contains WorkType object
+        self.preset = preset
 
     def add_work_type(self, _work_type):
         self.work_list.append(_work_type)
@@ -142,6 +143,9 @@ class Operation(object):
         elif self.process.name[0] == 'P':
             self.process_time =  np.random.randint(low=80, high=100, size=len(self.machine_available))
 
+    def set_pt_list(self, _pt):
+        self.process_time = _pt
+
 
 
 # endregion
@@ -175,6 +179,10 @@ class Job(object):
         self.idx = idx
         self.due_date = due_date
         self.release_date = release_date
+        if self.job_type.preset is None:
+            self.my_data = None
+        else:
+            self.my_data = self.job_type.preset['Job_' + str(self.idx)]
 
         # 작업 유형 객체, 각 작업 유형은 고유한 공정 수, 공정 순서, 기계 순서 등을 정의할 수 있음.
         if len(self.job_type.work_list) > 1:
@@ -219,7 +227,14 @@ class Job(object):
         for i, w_type in enumerate(self.job_type.work_list):
             for j, op_type in enumerate(w_type.op_list):
                 o = Operation(self.model, self.env, idx=j, part_name=self.name, op_type=op_type)
-                o.randomize_pt_list()
+                if self.job_type.preset is None:
+                    o.randomize_pt_list()
+                else:
+                    pt = self.my_data['processing_time'][i][j]
+                    if isinstance(pt, list):
+                        o.set_pt_list(pt)
+                    else:
+                        o.set_pt_list([pt])
                 self.op_list[i].append(o)
             # op라는 리스트에 model, id, part_name, machine_list 등을 저장한다.
 

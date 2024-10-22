@@ -50,11 +50,16 @@ class Source(object):
         # IAT에 따라 반복적으로 부품 생성하고 이를 generated_parts에 저장. 생성된 각 부품은 'Job' 객체로 생성. 부품에 대한 정보와 생성 이벤트가 monitor에 의해 기록.
         while self.rec < self.num_parts:
             # yield self.env.timeout(self.IAT)
-            yield self.env.timeout(0)
+            if self.job_type.preset is not None:
+                iat = round(self.job_type.preset['Job_'+str(self.rec)]['IAT'],2)
+                yield self.env.timeout(iat)
+            else:
+                yield self.env.timeout(0)
             # 1. Generate a Part Object
             part = Job(self.model, env=self.env, job_type=self.job_type, idx=self.rec)
             part.loc = self.name  # Update the part's current location
-
+            self.monitor.record(self.env.now, self.name, machine=self.name,
+                                part_name=part.name, event="Started")  # 작업 시작 기록
             if self.cfg.CONSOLE_MODE:
                 print('-' * 15 + part.name + " Created" + '-' * 15)
 
@@ -115,6 +120,8 @@ class Source(object):
                 print(part.name, "is going to be put in ", next_process.name)
             yield next_process.availability.put('using') # 사용권 획득
             yield next_process.in_buffer.put(part)
+            self.monitor.record(self.env.now, self.name, machine=self.name,
+                                part_name=part.name, event="Finished")  # 작업 시작 기록
             part.loc = next_process.name
 
             # 4. Record
