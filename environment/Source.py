@@ -65,6 +65,7 @@ class Source(object):
 
             # 2. Update the number of parts generates
             # so that the Source would stop after generating a certain amount of parts
+
             self.generated_parts.put(part)
             # 여기에 저장
             self.rec += 1

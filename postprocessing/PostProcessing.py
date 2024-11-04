@@ -70,7 +70,7 @@ def generate_unity_log(_filepath, num_blocks=10):
 
     for i in range(num_blocks):
         for p in process:
-            print(p)
+            # print(p)
             j = data[(data.Part == 'Part_' + str(i)) & (data.Process == p)]
             machine = j[j.Event == 'Started']['Machine'].values[0]
             mapped = process_map[machine]

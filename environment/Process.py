@@ -99,8 +99,8 @@ class Process(object):
             print("%d\t기존에 part %s의 process는 %s 입니다." % (self.env.now,part.name, part.process.name))
             yield part.process.availability.get()
             print("%d\t이전 process인 %s의 사용권 반환" % (self.env.now,part.process.name))
-            if part.process.name == 'Buffer':
-                print('break')
+            # if part.process.name == 'Buffer':
+            #     print('break')
         part.set_process(self)
         print("%d\t%s 의 process를 %s 로 바꿨습니다" % (self.env.now,part.name, part.process.name))
 

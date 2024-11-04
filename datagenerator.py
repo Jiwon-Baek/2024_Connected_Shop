@@ -1,9 +1,11 @@
 import json
 import numpy as np
-
+import pandas as pd
 if __name__ == "__main__":
     info = dict()
-    for i in range(10):
+    data = pd.read_csv('Taillard_1.csv', header=None).to_numpy()
+
+    for i in range(1): # 1세트 만듦
         info[str(i)] = dict()
         time = 0.0
         iat = 0.0
