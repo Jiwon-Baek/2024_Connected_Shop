@@ -10,6 +10,7 @@ class Buffer(object):
         self.monitor = _monitor
         self.availability = simpy.FilterStore(_env, capacity=float('inf'))
         self.buffer = simpy.Store(_env, capacity=float('inf'))  # 10 is an arbitrary number
+        self.WIP = 0
 
         # _env.process(self.to_next_process())
         _env.process(self.routing())
@@ -17,6 +18,7 @@ class Buffer(object):
         while True:
             # 1. Get a part from the list of generated parts
             part = yield self.buffer.get()
+            self.WIP += 1
 
             # part.set_process(self)
 
@@ -46,6 +48,7 @@ class Buffer(object):
         # 다음 공정의 완료여부 확인 필요 -> 빈자리 날때까지 대기
         yield next_process.availability.put('using')
         yield next_process.in_buffer.put(part)
+        self.WIP -= 1
         # self.availability.get()
         print(part.name, "left Buffer at ", self.env.now)
         part.loc = next_process.name

@@ -4,6 +4,7 @@ from environment.Part import Job, Operation
 from environment.Monitor import Monitor
 import sys
 import os
+import copy
 sys.path.append(os.path.dirname(os.path.abspath(os.path.dirname(os.path.abspath(os.path.dirname(__file__))))))
 
 # region Source
@@ -22,7 +23,9 @@ class Source(object):
         - `IAT (str)`: 부품의 생성 간격을 정의하는 문자열. 예를 들어, `'exponential(1)'`은 지수 분포를 의미.
         - `num_parts (int)`: 생성할 부품의 총 수. 기본값은 무한대(`float('inf')`).
     """
-    def __init__(self, _cfg, _env, _name, _model, _monitor, job_type, IAT='exponential(1)', num_parts=float('inf')):
+    def __init__(self, _cfg, _env, _name, _model, _monitor, job_type,
+                 IAT='exponential(1)', num_parts=float('inf'),
+                 solution = None):
         self.env = _env
         # _ 언더바는 임시 또는 지역 변수로 사용하거나 접근제한을 나타냄(비공개, 내부용)
         self.cfg = _cfg
@@ -34,11 +37,24 @@ class Source(object):
         self.num_parts = num_parts  # Source가 생성하는 Part의 갯수
 
         self.rec = 0  # 현재까지 생성된 Part의 갯수를 기록하는 변수
-        self.generated_parts = simpy.Store(_env, capacity=10)  # 10 is an arbitrary number
+        self.generated_parts = simpy.Store(_env, capacity=float('inf'))
+        self.aligned_queue = simpy.Store(_env, capacity=float('inf'))
+        self.solution = solution
+        self.put_event = self.env.event()
+        self.generated_list = list()
+        self.num_sent = 0
+        self.WIP = 0
         # 생성된 부품을 임시로 저장하는 simpy.Store 객체
 
         _env.process(self.generate())
         _env.process(self.to_next_process())
+
+    # def align(self):
+    #     yield self.put_event
+    #     self.put_event = self.env.event()
+    #
+    #     if self.solution[self.num_sent] in self.generated_list:
+
 
     def generate(self):
         """
@@ -51,12 +67,15 @@ class Source(object):
         while self.rec < self.num_parts:
             # yield self.env.timeout(self.IAT)
             if self.job_type.preset is not None:
-                iat = round(self.job_type.preset['Job_'+str(self.rec)]['IAT'],2)
+                iat = round(self.job_type.preset['Job_'+str(self.rec)]['IAT'])
+                print(str(self.env.now) +'\tJob_'+str(self.rec) + ' Generated!')
+                # iat = round(self.job_type.preset['Job_'+str(self.rec)]['IAT'],2)
                 yield self.env.timeout(iat)
             else:
                 yield self.env.timeout(0)
             # 1. Generate a Part Object
             part = Job(self.model, env=self.env, job_type=self.job_type, idx=self.rec)
+            self.WIP += 1
             part.loc = self.name  # Update the part's current location
             self.monitor.record(self.env.now, self.name, machine=self.name,
                                 part_name=part.name, event="Started")  # 작업 시작 기록
@@ -67,6 +86,9 @@ class Source(object):
             # so that the Source would stop after generating a certain amount of parts
 
             self.generated_parts.put(part)
+            # self.put_event.succeed()
+            self.generated_list.append(copy.deepcopy(self.rec))
+
             # 여기에 저장
             self.rec += 1
             # print("rec is " + str(self.rec))
@@ -101,6 +123,7 @@ class Source(object):
         while True:
             # 1. Get a part from the list of generated parts
             part = yield self.generated_parts.get()
+            # part = yield self.aligned_queue.get()
             # print('OK?')
             part.current_work += 1  # this makes part.current_work to 0
             part.step[part.current_work] += 1  # this makes part.step to 0
@@ -121,6 +144,7 @@ class Source(object):
                 print(part.name, "is going to be put in ", next_process.name)
             yield next_process.availability.put('using') # 사용권 획득
             yield next_process.in_buffer.put(part)
+            self.WIP -= 1
             self.monitor.record(self.env.now, self.name, machine=self.name,
                                 part_name=part.name, event="Finished")  # 작업 시작 기록
             part.loc = next_process.name
