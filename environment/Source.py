@@ -66,13 +66,9 @@ class Source(object):
         # IAT에 따라 반복적으로 부품 생성하고 이를 generated_parts에 저장. 생성된 각 부품은 'Job' 객체로 생성. 부품에 대한 정보와 생성 이벤트가 monitor에 의해 기록.
         while self.rec < self.num_parts:
             # yield self.env.timeout(self.IAT)
-            if self.job_type.preset is not None:
-                iat = round(self.job_type.preset['Job_'+str(self.rec)]['IAT'])
-                print(str(self.env.now) +'\tJob_'+str(self.rec) + ' Generated!')
-                # iat = round(self.job_type.preset['Job_'+str(self.rec)]['IAT'],2)
-                yield self.env.timeout(iat)
-            else:
-                yield self.env.timeout(0)
+
+            # print(str(self.env.now) + '\tJob_' + str(self.rec) + ' Generated!')
+
             # 1. Generate a Part Object
             part = Job(self.model, env=self.env, job_type=self.job_type, idx=self.rec)
             self.WIP += 1
@@ -110,6 +106,12 @@ class Source(object):
             #     # self.IAT가 exponential(1)라는 값을 가진다면 np.random.exponential(1)이 됨.
             # else:
             #     IAT = self.IAT
+            if self.rec < self.num_parts:
+                if self.job_type.preset is not None:
+                    iat = round(self.job_type.preset['Job_'+str(self.rec)]['IAT'])
+                    yield self.env.timeout(iat)
+                else:
+                    yield self.env.timeout(0)
 
 
     def to_next_process(self):

@@ -16,7 +16,7 @@ import seaborn as sns
 if __name__ == '__main__':
     import json
 
-    with open('data.json', 'r') as f:
+    with open('data/data.json', 'r') as f:
         data = json.load(f)
 
     data = data['0']

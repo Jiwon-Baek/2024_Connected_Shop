@@ -53,7 +53,7 @@ class Sink(object):
         self.parts_rec += 1
 
         part.process.availability.get()
-        print("part %s 가 sink에 도달했으므로 이전 process인 %s 의 사용권 해지" % (part.name, part.process.name))
+        # print("part %s 가 sink에 도달했으므로 이전 process인 %s 의 사용권 해지" % (part.name, part.process.name))
         # 도착한 부품 수 증가
         self.last_arrival = self.env.now
         # 마지막 도착 시간 업데이트

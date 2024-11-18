@@ -1,0 +1,4702 @@
+{
+	"Job_0": {
+		"Name": "Job_0",
+		"Created": 0.0,
+		"IAT": 9.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				73,
+				34,
+				8,
+				62,
+				10
+			],
+			[
+				[
+					258,
+					258,
+					258,
+					258,
+					258
+				]
+			]
+		]
+	},
+	"Job_1": {
+		"Name": "Job_1",
+		"Created": 19.0,
+		"IAT": 19.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				84,
+				46,
+				37,
+				86,
+				60
+			],
+			[
+				[
+					248,
+					248,
+					248,
+					248,
+					248
+				]
+			]
+		]
+	},
+	"Job_2": {
+		"Name": "Job_2",
+		"Created": 233.0,
+		"IAT": 214.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				57,
+				97,
+				38,
+				46,
+				34
+			],
+			[
+				[
+					234,
+					234,
+					234,
+					234,
+					234
+				]
+			]
+		]
+	},
+	"Job_3": {
+		"Name": "Job_3",
+		"Created": 257.0,
+		"IAT": 24.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				52,
+				88,
+				30,
+				3,
+				96
+			],
+			[
+				[
+					227,
+					227,
+					227,
+					227,
+					227
+				]
+			]
+		]
+	},
+	"Job_4": {
+		"Name": "Job_4",
+		"Created": 296.0,
+		"IAT": 39.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				66,
+				52,
+				20,
+				22,
+				79
+			],
+			[
+				[
+					240,
+					240,
+					240,
+					240,
+					240
+				]
+			]
+		]
+	},
+	"Job_5": {
+		"Name": "Job_5",
+		"Created": 309.0,
+		"IAT": 13.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				67,
+				49,
+				68,
+				33,
+				62
+			],
+			[
+				[
+					258,
+					258,
+					258,
+					258,
+					258
+				]
+			]
+		]
+	},
+	"Job_6": {
+		"Name": "Job_6",
+		"Created": 366.0,
+		"IAT": 57.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				33,
+				88,
+				4,
+				90,
+				6
+			],
+			[
+				[
+					238,
+					238,
+					238,
+					238,
+					238
+				]
+			]
+		]
+	},
+	"Job_7": {
+		"Name": "Job_7",
+		"Created": 386.0,
+		"IAT": 20.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				62,
+				15,
+				78,
+				94,
+				15
+			],
+			[
+				[
+					242,
+					242,
+					242,
+					242,
+					242
+				]
+			]
+		]
+	},
+	"Job_8": {
+		"Name": "Job_8",
+		"Created": 400.0,
+		"IAT": 14.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				65,
+				55,
+				41,
+				98,
+				94
+			],
+			[
+				[
+					230,
+					230,
+					230,
+					230,
+					230
+				]
+			]
+		]
+	},
+	"Job_9": {
+		"Name": "Job_9",
+		"Created": 444.0,
+		"IAT": 44.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				7,
+				6,
+				2,
+				9,
+				39
+			],
+			[
+				[
+					230,
+					230,
+					230,
+					230,
+					230
+				]
+			]
+		]
+	},
+	"Job_10": {
+		"Name": "Job_10",
+		"Created": 444.0,
+		"IAT": 0.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				6,
+				77,
+				62,
+				84,
+				85
+			],
+			[
+				[
+					243,
+					243,
+					243,
+					243,
+					243
+				]
+			]
+		]
+	},
+	"Job_11": {
+		"Name": "Job_11",
+		"Created": 444.0,
+		"IAT": 0.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				31,
+				49,
+				38,
+				69,
+				17
+			],
+			[
+				[
+					255,
+					255,
+					255,
+					255,
+					255
+				]
+			]
+		]
+	},
+	"Job_12": {
+		"Name": "Job_12",
+		"Created": 459.0,
+		"IAT": 15.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				42,
+				46,
+				95,
+				26,
+				55
+			],
+			[
+				[
+					259,
+					259,
+					259,
+					259,
+					259
+				]
+			]
+		]
+	},
+	"Job_13": {
+		"Name": "Job_13",
+		"Created": 461.0,
+		"IAT": 2.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				82,
+				14,
+				82,
+				22,
+				59
+			],
+			[
+				[
+					243,
+					243,
+					243,
+					243,
+					243
+				]
+			]
+		]
+	},
+	"Job_14": {
+		"Name": "Job_14",
+		"Created": 468.0,
+		"IAT": 7.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				48,
+				35,
+				96,
+				49,
+				48
+			],
+			[
+				[
+					222,
+					222,
+					222,
+					222,
+					222
+				]
+			]
+		]
+	},
+	"Job_15": {
+		"Name": "Job_15",
+		"Created": 493.0,
+		"IAT": 25.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				45,
+				40,
+				56,
+				90,
+				11
+			],
+			[
+				[
+					241,
+					241,
+					241,
+					241,
+					241
+				]
+			]
+		]
+	},
+	"Job_16": {
+		"Name": "Job_16",
+		"Created": 590.0,
+		"IAT": 97.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				79,
+				1,
+				61,
+				81,
+				63
+			],
+			[
+				[
+					221,
+					221,
+					221,
+					221,
+					221
+				]
+			]
+		]
+	},
+	"Job_17": {
+		"Name": "Job_17",
+		"Created": 641.0,
+		"IAT": 51.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				86,
+				70,
+				34,
+				12,
+				98
+			],
+			[
+				[
+					243,
+					243,
+					243,
+					243,
+					243
+				]
+			]
+		]
+	},
+	"Job_18": {
+		"Name": "Job_18",
+		"Created": 684.0,
+		"IAT": 43.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				10,
+				46,
+				1,
+				54,
+				33
+			],
+			[
+				[
+					249,
+					249,
+					249,
+					249,
+					249
+				]
+			]
+		]
+	},
+	"Job_19": {
+		"Name": "Job_19",
+		"Created": 705.0,
+		"IAT": 21.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				47,
+				28,
+				9,
+				53,
+				49
+			],
+			[
+				[
+					257,
+					257,
+					257,
+					257,
+					257
+				]
+			]
+		]
+	},
+	"Job_20": {
+		"Name": "Job_20",
+		"Created": 866.0,
+		"IAT": 161.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				67,
+				73,
+				57,
+				18,
+				41
+			],
+			[
+				[
+					221,
+					221,
+					221,
+					221,
+					221
+				]
+			]
+		]
+	},
+	"Job_21": {
+		"Name": "Job_21",
+		"Created": 896.0,
+		"IAT": 30.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				86,
+				24,
+				80,
+				56,
+				82
+			],
+			[
+				[
+					240,
+					240,
+					240,
+					240,
+					240
+				]
+			]
+		]
+	},
+	"Job_22": {
+		"Name": "Job_22",
+		"Created": 901.0,
+		"IAT": 5.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				64,
+				44,
+				58,
+				43,
+				12
+			],
+			[
+				[
+					252,
+					252,
+					252,
+					252,
+					252
+				]
+			]
+		]
+	},
+	"Job_23": {
+		"Name": "Job_23",
+		"Created": 959.0,
+		"IAT": 58.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				38,
+				55,
+				7,
+				50,
+				61
+			],
+			[
+				[
+					231,
+					231,
+					231,
+					231,
+					231
+				]
+			]
+		]
+	},
+	"Job_24": {
+		"Name": "Job_24",
+		"Created": 966.0,
+		"IAT": 7.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				13,
+				94,
+				56,
+				82,
+				94
+			],
+			[
+				[
+					241,
+					241,
+					241,
+					241,
+					241
+				]
+			]
+		]
+	},
+	"Job_25": {
+		"Name": "Job_25",
+		"Created": 991.0,
+		"IAT": 25.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				69,
+				52,
+				31,
+				18,
+				80
+			],
+			[
+				[
+					244,
+					244,
+					244,
+					244,
+					244
+				]
+			]
+		]
+	},
+	"Job_26": {
+		"Name": "Job_26",
+		"Created": 1033.0,
+		"IAT": 42.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				4,
+				40,
+				92,
+				89,
+				84
+			],
+			[
+				[
+					246,
+					246,
+					246,
+					246,
+					246
+				]
+			]
+		]
+	},
+	"Job_27": {
+		"Name": "Job_27",
+		"Created": 1157.0,
+		"IAT": 124.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				21,
+				76,
+				84,
+				49,
+				18
+			],
+			[
+				[
+					247,
+					247,
+					247,
+					247,
+					247
+				]
+			]
+		]
+	},
+	"Job_28": {
+		"Name": "Job_28",
+		"Created": 1198.0,
+		"IAT": 41.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				25,
+				92,
+				25,
+				20,
+				68
+			],
+			[
+				[
+					235,
+					235,
+					235,
+					235,
+					235
+				]
+			]
+		]
+	},
+	"Job_29": {
+		"Name": "Job_29",
+		"Created": 1271.0,
+		"IAT": 73.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				74,
+				22,
+				20,
+				76,
+				6
+			],
+			[
+				[
+					234,
+					234,
+					234,
+					234,
+					234
+				]
+			]
+		]
+	},
+	"Job_30": {
+		"Name": "Job_30",
+		"Created": 1567.0,
+		"IAT": 296.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				11,
+				46,
+				65,
+				90,
+				98
+			],
+			[
+				[
+					222,
+					222,
+					222,
+					222,
+					222
+				]
+			]
+		]
+	},
+	"Job_31": {
+		"Name": "Job_31",
+		"Created": 1575.0,
+		"IAT": 8.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				85,
+				19,
+				36,
+				64,
+				47
+			],
+			[
+				[
+					256,
+					256,
+					256,
+					256,
+					256
+				]
+			]
+		]
+	},
+	"Job_32": {
+		"Name": "Job_32",
+		"Created": 1594.0,
+		"IAT": 19.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				50,
+				18,
+				67,
+				89,
+				6
+			],
+			[
+				[
+					226,
+					226,
+					226,
+					226,
+					226
+				]
+			]
+		]
+	},
+	"Job_33": {
+		"Name": "Job_33",
+		"Created": 1624.0,
+		"IAT": 30.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				21,
+				50,
+				96,
+				16,
+				55
+			],
+			[
+				[
+					240,
+					240,
+					240,
+					240,
+					240
+				]
+			]
+		]
+	},
+	"Job_34": {
+		"Name": "Job_34",
+		"Created": 1657.0,
+		"IAT": 33.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				93,
+				31,
+				35,
+				3,
+				73
+			],
+			[
+				[
+					228,
+					228,
+					228,
+					228,
+					228
+				]
+			]
+		]
+	},
+	"Job_35": {
+		"Name": "Job_35",
+		"Created": 1689.0,
+		"IAT": 32.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				98,
+				41,
+				59,
+				12,
+				70
+			],
+			[
+				[
+					258,
+					258,
+					258,
+					258,
+					258
+				]
+			]
+		]
+	},
+	"Job_36": {
+		"Name": "Job_36",
+		"Created": 1832.0,
+		"IAT": 143.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				91,
+				51,
+				76,
+				45,
+				56
+			],
+			[
+				[
+					237,
+					237,
+					237,
+					237,
+					237
+				]
+			]
+		]
+	},
+	"Job_37": {
+		"Name": "Job_37",
+		"Created": 1907.0,
+		"IAT": 75.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				26,
+				73,
+				66,
+				67,
+				46
+			],
+			[
+				[
+					223,
+					223,
+					223,
+					223,
+					223
+				]
+			]
+		]
+	},
+	"Job_38": {
+		"Name": "Job_38",
+		"Created": 1963.0,
+		"IAT": 56.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				4,
+				22,
+				83,
+				97,
+				50
+			],
+			[
+				[
+					244,
+					244,
+					244,
+					244,
+					244
+				]
+			]
+		]
+	},
+	"Job_39": {
+		"Name": "Job_39",
+		"Created": 1985.0,
+		"IAT": 22.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				28,
+				21,
+				37,
+				80,
+				90
+			],
+			[
+				[
+					233,
+					233,
+					233,
+					233,
+					233
+				]
+			]
+		]
+	},
+	"Job_40": {
+		"Name": "Job_40",
+		"Created": 2089.0,
+		"IAT": 104.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				61,
+				79,
+				33,
+				97,
+				89
+			],
+			[
+				[
+					228,
+					228,
+					228,
+					228,
+					228
+				]
+			]
+		]
+	},
+	"Job_41": {
+		"Name": "Job_41",
+		"Created": 2275.0,
+		"IAT": 186.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				8,
+				93,
+				2,
+				92,
+				88
+			],
+			[
+				[
+					245,
+					245,
+					245,
+					245,
+					245
+				]
+			]
+		]
+	},
+	"Job_42": {
+		"Name": "Job_42",
+		"Created": 2378.0,
+		"IAT": 103.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				55,
+				98,
+				95,
+				56,
+				50
+			],
+			[
+				[
+					221,
+					221,
+					221,
+					221,
+					221
+				]
+			]
+		]
+	},
+	"Job_43": {
+		"Name": "Job_43",
+		"Created": 2378.0,
+		"IAT": 0.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				68,
+				89,
+				20,
+				50,
+				99
+			],
+			[
+				[
+					239,
+					239,
+					239,
+					239,
+					239
+				]
+			]
+		]
+	},
+	"Job_44": {
+		"Name": "Job_44",
+		"Created": 2439.0,
+		"IAT": 61.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				30,
+				44,
+				84,
+				95,
+				41
+			],
+			[
+				[
+					247,
+					247,
+					247,
+					247,
+					247
+				]
+			]
+		]
+	},
+	"Job_45": {
+		"Name": "Job_45",
+		"Created": 2442.0,
+		"IAT": 3.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				26,
+				64,
+				43,
+				25,
+				36
+			],
+			[
+				[
+					226,
+					226,
+					226,
+					226,
+					226
+				]
+			]
+		]
+	},
+	"Job_46": {
+		"Name": "Job_46",
+		"Created": 2460.0,
+		"IAT": 18.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				81,
+				93,
+				4,
+				52,
+				16
+			],
+			[
+				[
+					227,
+					227,
+					227,
+					227,
+					227
+				]
+			]
+		]
+	},
+	"Job_47": {
+		"Name": "Job_47",
+		"Created": 2464.0,
+		"IAT": 4.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				95,
+				66,
+				44,
+				21,
+				84
+			],
+			[
+				[
+					254,
+					254,
+					254,
+					254,
+					254
+				]
+			]
+		]
+	},
+	"Job_48": {
+		"Name": "Job_48",
+		"Created": 2520.0,
+		"IAT": 56.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				49,
+				14,
+				74,
+				47,
+				98
+			],
+			[
+				[
+					233,
+					233,
+					233,
+					233,
+					233
+				]
+			]
+		]
+	},
+	"Job_49": {
+		"Name": "Job_49",
+		"Created": 2590.0,
+		"IAT": 70.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				6,
+				10,
+				92,
+				4,
+				44
+			],
+			[
+				[
+					236,
+					236,
+					236,
+					236,
+					236
+				]
+			]
+		]
+	},
+	"Job_50": {
+		"Name": "Job_50",
+		"Created": 2597.0,
+		"IAT": 7.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				82,
+				36,
+				55,
+				67,
+				42
+			],
+			[
+				[
+					255,
+					255,
+					255,
+					255,
+					255
+				]
+			]
+		]
+	},
+	"Job_51": {
+		"Name": "Job_51",
+		"Created": 2626.0,
+		"IAT": 29.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				71,
+				36,
+				98,
+				62,
+				43
+			],
+			[
+				[
+					259,
+					259,
+					259,
+					259,
+					259
+				]
+			]
+		]
+	},
+	"Job_52": {
+		"Name": "Job_52",
+		"Created": 2663.0,
+		"IAT": 37.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				61,
+				69,
+				8,
+				63,
+				62
+			],
+			[
+				[
+					223,
+					223,
+					223,
+					223,
+					223
+				]
+			]
+		]
+	},
+	"Job_53": {
+		"Name": "Job_53",
+		"Created": 2691.0,
+		"IAT": 28.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				84,
+				79,
+				30,
+				25,
+				49
+			],
+			[
+				[
+					221,
+					221,
+					221,
+					221,
+					221
+				]
+			]
+		]
+	},
+	"Job_54": {
+		"Name": "Job_54",
+		"Created": 2699.0,
+		"IAT": 8.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				29,
+				90,
+				18,
+				3,
+				22
+			],
+			[
+				[
+					225,
+					225,
+					225,
+					225,
+					225
+				]
+			]
+		]
+	},
+	"Job_55": {
+		"Name": "Job_55",
+		"Created": 2732.0,
+		"IAT": 33.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				44,
+				51,
+				28,
+				55,
+				16
+			],
+			[
+				[
+					223,
+					223,
+					223,
+					223,
+					223
+				]
+			]
+		]
+	},
+	"Job_56": {
+		"Name": "Job_56",
+		"Created": 2815.0,
+		"IAT": 83.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				83,
+				81,
+				54,
+				87,
+				14
+			],
+			[
+				[
+					248,
+					248,
+					248,
+					248,
+					248
+				]
+			]
+		]
+	},
+	"Job_57": {
+		"Name": "Job_57",
+		"Created": 2819.0,
+		"IAT": 4.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				12,
+				16,
+				68,
+				84,
+				55
+			],
+			[
+				[
+					237,
+					237,
+					237,
+					237,
+					237
+				]
+			]
+		]
+	},
+	"Job_58": {
+		"Name": "Job_58",
+		"Created": 2824.0,
+		"IAT": 5.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				54,
+				28,
+				42,
+				28,
+				45
+			],
+			[
+				[
+					245,
+					245,
+					245,
+					245,
+					245
+				]
+			]
+		]
+	},
+	"Job_59": {
+		"Name": "Job_59",
+		"Created": 2850.0,
+		"IAT": 26.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				19,
+				26,
+				28,
+				73,
+				20
+			],
+			[
+				[
+					253,
+					253,
+					253,
+					253,
+					253
+				]
+			]
+		]
+	},
+	"Job_60": {
+		"Name": "Job_60",
+		"Created": 3021.0,
+		"IAT": 171.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				52,
+				97,
+				12,
+				8,
+				35
+			],
+			[
+				[
+					229,
+					229,
+					229,
+					229,
+					229
+				]
+			]
+		]
+	},
+	"Job_61": {
+		"Name": "Job_61",
+		"Created": 3087.0,
+		"IAT": 66.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				59,
+				33,
+				57,
+				38,
+				89
+			],
+			[
+				[
+					255,
+					255,
+					255,
+					255,
+					255
+				]
+			]
+		]
+	},
+	"Job_62": {
+		"Name": "Job_62",
+		"Created": 3155.0,
+		"IAT": 68.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				74,
+				77,
+				81,
+				80,
+				7
+			],
+			[
+				[
+					233,
+					233,
+					233,
+					233,
+					233
+				]
+			]
+		]
+	},
+	"Job_63": {
+		"Name": "Job_63",
+		"Created": 3182.0,
+		"IAT": 27.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				42,
+				68,
+				19,
+				53,
+				64
+			],
+			[
+				[
+					250,
+					250,
+					250,
+					250,
+					250
+				]
+			]
+		]
+	},
+	"Job_64": {
+		"Name": "Job_64",
+		"Created": 3236.0,
+		"IAT": 54.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				60,
+				28,
+				16,
+				70,
+				36
+			],
+			[
+				[
+					234,
+					234,
+					234,
+					234,
+					234
+				]
+			]
+		]
+	},
+	"Job_65": {
+		"Name": "Job_65",
+		"Created": 3237.0,
+		"IAT": 1.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				43,
+				46,
+				88,
+				9,
+				5
+			],
+			[
+				[
+					227,
+					227,
+					227,
+					227,
+					227
+				]
+			]
+		]
+	},
+	"Job_66": {
+		"Name": "Job_66",
+		"Created": 3298.0,
+		"IAT": 61.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				80,
+				16,
+				75,
+				87,
+				63
+			],
+			[
+				[
+					233,
+					233,
+					233,
+					233,
+					233
+				]
+			]
+		]
+	},
+	"Job_67": {
+		"Name": "Job_67",
+		"Created": 3445.0,
+		"IAT": 147.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				34,
+				96,
+				11,
+				33,
+				8
+			],
+			[
+				[
+					242,
+					242,
+					242,
+					242,
+					242
+				]
+			]
+		]
+	},
+	"Job_68": {
+		"Name": "Job_68",
+		"Created": 3502.0,
+		"IAT": 57.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				74,
+				59,
+				57,
+				11,
+				76
+			],
+			[
+				[
+					259,
+					259,
+					259,
+					259,
+					259
+				]
+			]
+		]
+	},
+	"Job_69": {
+		"Name": "Job_69",
+		"Created": 3626.0,
+		"IAT": 124.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				46,
+				56,
+				99,
+				65,
+				95
+			],
+			[
+				[
+					240,
+					240,
+					240,
+					240,
+					240
+				]
+			]
+		]
+	},
+	"Job_70": {
+		"Name": "Job_70",
+		"Created": 3703.0,
+		"IAT": 77.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				40,
+				4,
+				4,
+				92,
+				40
+			],
+			[
+				[
+					235,
+					235,
+					235,
+					235,
+					235
+				]
+			]
+		]
+	},
+	"Job_71": {
+		"Name": "Job_71",
+		"Created": 3711.0,
+		"IAT": 8.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				27,
+				52,
+				51,
+				34,
+				51
+			],
+			[
+				[
+					237,
+					237,
+					237,
+					237,
+					237
+				]
+			]
+		]
+	},
+	"Job_72": {
+		"Name": "Job_72",
+		"Created": 3851.0,
+		"IAT": 140.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				79,
+				89,
+				26,
+				64,
+				98
+			],
+			[
+				[
+					243,
+					243,
+					243,
+					243,
+					243
+				]
+			]
+		]
+	},
+	"Job_73": {
+		"Name": "Job_73",
+		"Created": 3855.0,
+		"IAT": 4.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				1,
+				84,
+				6,
+				96,
+				77
+			],
+			[
+				[
+					245,
+					245,
+					245,
+					245,
+					245
+				]
+			]
+		]
+	},
+	"Job_74": {
+		"Name": "Job_74",
+		"Created": 3901.0,
+		"IAT": 46.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				98,
+				42,
+				16,
+				67,
+				92
+			],
+			[
+				[
+					244,
+					244,
+					244,
+					244,
+					244
+				]
+			]
+		]
+	},
+	"Job_75": {
+		"Name": "Job_75",
+		"Created": 3910.0,
+		"IAT": 9.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				44,
+				37,
+				71,
+				54,
+				35
+			],
+			[
+				[
+					248,
+					248,
+					248,
+					248,
+					248
+				]
+			]
+		]
+	},
+	"Job_76": {
+		"Name": "Job_76",
+		"Created": 3911.0,
+		"IAT": 1.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				8,
+				90,
+				52,
+				26,
+				3
+			],
+			[
+				[
+					234,
+					234,
+					234,
+					234,
+					234
+				]
+			]
+		]
+	},
+	"Job_77": {
+		"Name": "Job_77",
+		"Created": 3944.0,
+		"IAT": 33.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				55,
+				51,
+				96,
+				32,
+				56
+			],
+			[
+				[
+					220,
+					220,
+					220,
+					220,
+					220
+				]
+			]
+		]
+	},
+	"Job_78": {
+		"Name": "Job_78",
+		"Created": 3965.0,
+		"IAT": 21.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				55,
+				84,
+				89,
+				10,
+				1
+			],
+			[
+				[
+					244,
+					244,
+					244,
+					244,
+					244
+				]
+			]
+		]
+	},
+	"Job_79": {
+		"Name": "Job_79",
+		"Created": 4005.0,
+		"IAT": 40.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				27,
+				16,
+				79,
+				91,
+				17
+			],
+			[
+				[
+					226,
+					226,
+					226,
+					226,
+					226
+				]
+			]
+		]
+	},
+	"Job_80": {
+		"Name": "Job_80",
+		"Created": 4057.0,
+		"IAT": 52.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				69,
+				39,
+				91,
+				90,
+				70
+			],
+			[
+				[
+					228,
+					228,
+					228,
+					228,
+					228
+				]
+			]
+		]
+	},
+	"Job_81": {
+		"Name": "Job_81",
+		"Created": 4060.0,
+		"IAT": 3.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				79,
+				16,
+				57,
+				31,
+				45
+			],
+			[
+				[
+					243,
+					243,
+					243,
+					243,
+					243
+				]
+			]
+		]
+	},
+	"Job_82": {
+		"Name": "Job_82",
+		"Created": 4068.0,
+		"IAT": 8.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				97,
+				37,
+				2,
+				7,
+				87
+			],
+			[
+				[
+					220,
+					220,
+					220,
+					220,
+					220
+				]
+			]
+		]
+	},
+	"Job_83": {
+		"Name": "Job_83",
+		"Created": 4117.0,
+		"IAT": 49.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				39,
+				19,
+				33,
+				6,
+				37
+			],
+			[
+				[
+					227,
+					227,
+					227,
+					227,
+					227
+				]
+			]
+		]
+	},
+	"Job_84": {
+		"Name": "Job_84",
+		"Created": 4142.0,
+		"IAT": 25.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				54,
+				15,
+				42,
+				77,
+				70
+			],
+			[
+				[
+					243,
+					243,
+					243,
+					243,
+					243
+				]
+			]
+		]
+	},
+	"Job_85": {
+		"Name": "Job_85",
+		"Created": 4220.0,
+		"IAT": 78.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				75,
+				68,
+				1,
+				91,
+				84
+			],
+			[
+				[
+					230,
+					230,
+					230,
+					230,
+					230
+				]
+			]
+		]
+	},
+	"Job_86": {
+		"Name": "Job_86",
+		"Created": 4283.0,
+		"IAT": 63.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				88,
+				7,
+				40,
+				42,
+				69
+			],
+			[
+				[
+					236,
+					236,
+					236,
+					236,
+					236
+				]
+			]
+		]
+	},
+	"Job_87": {
+		"Name": "Job_87",
+		"Created": 4395.0,
+		"IAT": 112.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				87,
+				58,
+				76,
+				5,
+				7
+			],
+			[
+				[
+					227,
+					227,
+					227,
+					227,
+					227
+				]
+			]
+		]
+	},
+	"Job_88": {
+		"Name": "Job_88",
+		"Created": 4466.0,
+		"IAT": 71.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				97,
+				47,
+				85,
+				46,
+				5
+			],
+			[
+				[
+					254,
+					254,
+					254,
+					254,
+					254
+				]
+			]
+		]
+	},
+	"Job_89": {
+		"Name": "Job_89",
+		"Created": 4500.0,
+		"IAT": 34.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				4,
+				27,
+				99,
+				54,
+				97
+			],
+			[
+				[
+					254,
+					254,
+					254,
+					254,
+					254
+				]
+			]
+		]
+	},
+	"Job_90": {
+		"Name": "Job_90",
+		"Created": 4567.0,
+		"IAT": 67.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				79,
+				82,
+				65,
+				56,
+				47
+			],
+			[
+				[
+					252,
+					252,
+					252,
+					252,
+					252
+				]
+			]
+		]
+	},
+	"Job_91": {
+		"Name": "Job_91",
+		"Created": 4586.0,
+		"IAT": 19.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				59,
+				72,
+				98,
+				1,
+				12
+			],
+			[
+				[
+					224,
+					224,
+					224,
+					224,
+					224
+				]
+			]
+		]
+	},
+	"Job_92": {
+		"Name": "Job_92",
+		"Created": 4608.0,
+		"IAT": 22.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				7,
+				1,
+				78,
+				24,
+				54
+			],
+			[
+				[
+					258,
+					258,
+					258,
+					258,
+					258
+				]
+			]
+		]
+	},
+	"Job_93": {
+		"Name": "Job_93",
+		"Created": 4701.0,
+		"IAT": 93.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				89,
+				7,
+				61,
+				62,
+				84
+			],
+			[
+				[
+					247,
+					247,
+					247,
+					247,
+					247
+				]
+			]
+		]
+	},
+	"Job_94": {
+		"Name": "Job_94",
+		"Created": 4736.0,
+		"IAT": 35.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				61,
+				22,
+				83,
+				47,
+				49
+			],
+			[
+				[
+					226,
+					226,
+					226,
+					226,
+					226
+				]
+			]
+		]
+	},
+	"Job_95": {
+		"Name": "Job_95",
+		"Created": 4832.0,
+		"IAT": 96.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				42,
+				40,
+				30,
+				63,
+				89
+			],
+			[
+				[
+					228,
+					228,
+					228,
+					228,
+					228
+				]
+			]
+		]
+	},
+	"Job_96": {
+		"Name": "Job_96",
+		"Created": 4936.0,
+		"IAT": 104.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				79,
+				59,
+				14,
+				39,
+				86
+			],
+			[
+				[
+					227,
+					227,
+					227,
+					227,
+					227
+				]
+			]
+		]
+	},
+	"Job_97": {
+		"Name": "Job_97",
+		"Created": 5053.0,
+		"IAT": 117.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				85,
+				16,
+				62,
+				63,
+				37
+			],
+			[
+				[
+					231,
+					231,
+					231,
+					231,
+					231
+				]
+			]
+		]
+	},
+	"Job_98": {
+		"Name": "Job_98",
+		"Created": 5202.0,
+		"IAT": 149.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				66,
+				7,
+				41,
+				95,
+				52
+			],
+			[
+				[
+					253,
+					253,
+					253,
+					253,
+					253
+				]
+			]
+		]
+	},
+	"Job_99": {
+		"Name": "Job_99",
+		"Created": 5236.0,
+		"IAT": 34.0,
+		"Work": [
+			"FS",
+			"PMS"
+		],
+		"num_process": [
+			5,
+			1
+		],
+		"type_machine": [
+			"Unrelated",
+			"Identical"
+		],
+		"num_machine": [
+			[
+				1,
+				1,
+				1,
+				1,
+				1
+			],
+			[
+				5
+			]
+		],
+		"processing_time": [
+			[
+				99,
+				72,
+				91,
+				45,
+				85
+			],
+			[
+				[
+					252,
+					252,
+					252,
+					252,
+					252
+				]
+			]
+		]
+	}
+}

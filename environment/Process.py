@@ -92,17 +92,17 @@ class Process(object):
         # print("operation %s 의 모든 선행조건이 완료되었습니다." % operation.name)
         # 선행조건이 충족되길 기다림.
         yield machine.availability.put('using')
-        print("%d\t%s 가 machine %s 의 사용권 획득" % (self.env.now, operation.name, machine.name))
+        # print("%d\t%s 가 machine %s 의 사용권 획득" % (self.env.now, operation.name, machine.name))
 
         # 아직 원래 process임
         if part.process is not None: # Sink 에서 출발할 때에는 part.process 가 None 일 수 있음
-            print("%d\t기존에 part %s의 process는 %s 입니다." % (self.env.now,part.name, part.process.name))
+            # print("%d\t기존에 part %s의 process는 %s 입니다." % (self.env.now,part.name, part.process.name))
             yield part.process.availability.get()
-            print("%d\t이전 process인 %s의 사용권 반환" % (self.env.now,part.process.name))
+            # print("%d\t이전 process인 %s의 사용권 반환" % (self.env.now,part.process.name))
             # if part.process.name == 'Buffer':
             #     print('break')
         part.set_process(self)
-        print("%d\t%s 의 process를 %s 로 바꿨습니다" % (self.env.now,part.name, part.process.name))
+        # print("%d\t%s 의 process를 %s 로 바꿨습니다" % (self.env.now,part.name, part.process.name))
 
         # 작업이 큐에서 나오는 시간 기록 및 대기 시간 계산
         wait_end_time = self.env.now
@@ -131,8 +131,8 @@ class Process(object):
             monitor_console(self.env.now, part, self.cfg.OBJECT, "Started on")
 
         yield self.env.timeout(pt)
-        print("%d\t%s 가 machine %s 에서 %d 만큼 작업되어 현재 시간이 %d가 됨"
-              % (self.env.now,part.name, machine.name, pt, self.env.now))
+        # print("%d\t%s 가 machine %s 에서 %d 만큼 작업되어 현재 시간이 %d가 됨"
+        #       % (self.env.now,part.name, machine.name, pt, self.env.now))
         self.monitor.record(self.env.now, self.name, machine=machine.name,
                             part_name=part.name, event="Finished") # 작업 완료 기록
         if self.cfg.CONSOLE_MODE:
@@ -145,7 +145,7 @@ class Process(object):
         # 4. Send(route) to the out_part queue for routing and update the machine availability
         yield self.out_buffer.put(part)
         yield machine.availability.get()
-        print("%d\t%s가 machine %s의 사용권 반환" % (self.env.now,part.name, machine.name))
+        # print("%d\t%s가 machine %s의 사용권 반환" % (self.env.now,part.name, machine.name))
 
         # 기계 사용 상태 해체
         machine.status = 'Idle'

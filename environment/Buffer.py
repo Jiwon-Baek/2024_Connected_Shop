@@ -22,18 +22,18 @@ class Buffer(object):
 
             # part.set_process(self)
 
-            print(part.name, "entered Buffer at ", self.env.now)
+            # print(part.name, "entered Buffer at ", self.env.now)
             self.env.process(self.to_next_process(part))
 
     def to_next_process(self, part):
 
 
-        print("%d\t%s가 Buffer에 도착했습니다." % (self.env.now,part.name))
-        print("%d\t현재 표시되어 있는 %s의 process 는 %s 입니다." % (self.env.now,part.name, part.process.name))
+        # print("%d\t%s가 Buffer에 도착했습니다." % (self.env.now,part.name))
+        # print("%d\t현재 표시되어 있는 %s의 process 는 %s 입니다." % (self.env.now,part.name, part.process.name))
         yield part.process.availability.get()
-        print("%d\t이전 process인 %s의 사용권 반환" % (self.env.now,part.process.name))
+        # print("%d\t이전 process인 %s의 사용권 반환" % (self.env.now,part.process.name))
         part.set_process(self)
-        print("%d\t%s 의 process를 %s 로 바꿨습니다" % (self.env.now,part.name, part.process.name))
+        # print("%d\t%s 의 process를 %s 로 바꿨습니다" % (self.env.now,part.name, part.process.name))
         # print(part.name, "started its routing at ", self.env.now)
         part.current_work += 1
         part.step[part.current_work] += 1
@@ -50,7 +50,7 @@ class Buffer(object):
         yield next_process.in_buffer.put(part)
         self.WIP -= 1
         # self.availability.get()
-        print(part.name, "left Buffer at ", self.env.now)
+        # print(part.name, "left Buffer at ", self.env.now)
         part.loc = next_process.name
 
         # 4. Record
