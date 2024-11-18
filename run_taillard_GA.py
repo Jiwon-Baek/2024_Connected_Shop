@@ -16,7 +16,7 @@ import json
 import copy
 
 def count_WIP(env, WIP_list, process):
-    yield env.timeout(0.1)
+    yield env.timeout(0.001)
 
     while len(WIP_list) < 5e5:
         WIP_list.append(process.WIP)
@@ -25,8 +25,15 @@ def count_WIP(env, WIP_list, process):
 def run_simulation(filepath, num_PM, show_gantt=False, save_wip=False):
     with open(filepath, 'r') as f:
         data = json.load(f)
-    num_blocks = 100
-    num_machines_list = data['Job_0']['num_machine']  # [ [1,1,1,1,1],[3] ]
+
+    data = data['0']
+
+    num_blocks = 4
+    # num_blocks = len(data)
+    num_shops = len(data['Job_0']['Work'])
+    num_machines_list = data['Job_0']['num_machine'] # [ [1,1,1,1,1],[3] ]
+    num_machines_by_shop = [sum(s) for s in data['Job_0']['num_machine']] # [5, 3]
+    num_machines = sum(num_machines_by_shop)
 
     """ 모델 준비 """
     env = simpy.Environment()
@@ -83,7 +90,8 @@ def run_simulation(filepath, num_PM, show_gantt=False, save_wip=False):
     """ 변하는 값 (processing time 등) 정의 """
 
     # 4-3. Source 객체 생성
-    model['Source'] = Source(cfg, env, 'Source', model, monitor, job_type=jobtype, IAT=0, num_parts=num_blocks)
+    model['Source'] = Source(cfg, env, 'Source', model, monitor, job_type=jobtype, IAT=0, num_parts=num_blocks,
+                             seq=[0,1,2,3])
     # 4-4. sink 생성
     model['Sink'] = Sink(cfg, env, monitor)
 

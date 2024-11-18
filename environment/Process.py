@@ -156,6 +156,10 @@ class Process(object):
             ############### 1. Job의 결정
             # TODO : call agent for selecting a part
             part = yield self.in_buffer.get()
+
+            # Release가 되기까지를 기다림
+            if part.release_date > self.env.now:
+                yield self.env.timeout(part.release_date - self.env.now)
             part.start_waiting_time = self.env.now
 
             ############### 2. Machine의 결정
