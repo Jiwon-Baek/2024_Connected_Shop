@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 def count_WIP(env, WIP_list, process):
-    yield env.timeout(0.1)
+    yield env.timeout(0.001)
 
     while len(WIP_list) < 5e5:
         WIP_list.append(process.WIP)
@@ -25,12 +25,13 @@ if __name__ == '__main__':
     import json
     keyword = '00'
     num_PM = 1
-    with open('data_Taillard_'+keyword+'.json', 'r') as f:
+    with open('data_Debug.json', 'r') as f:
+    # with open('data_Taillard_'+keyword+'.json', 'r') as f:
         data = json.load(f)
 
     data = data['0']
 
-    num_blocks = 100
+    num_blocks = 4
     # num_blocks = len(data)
     num_shops = len(data['Job_0']['Work'])
     num_machines_list = data['Job_0']['num_machine'] # [ [1,1,1,1,1],[3] ]
@@ -89,7 +90,8 @@ if __name__ == '__main__':
 
     """ 변하는 값 (processing time 등) 정의 """
     # 4-3. Source 객체 생성
-    model['Source'] = Source(cfg, env, 'Source', model, monitor, job_type=jobtype, IAT=0, num_parts=num_blocks)
+    model['Source'] = Source(cfg, env, 'Source', model, monitor, job_type=jobtype, IAT=0, num_parts=num_blocks,
+                             seq=[0,1,2,3])
     # 4-4. sink 생성
     model['Sink'] = Sink(cfg, env, monitor)
     # model['Buffer'] = Buffer(cfg, env, monitor)

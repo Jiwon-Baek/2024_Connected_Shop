@@ -47,15 +47,7 @@ class OperationType(object):
         self.name = name
         self.process = process
         self.machine_list = m_list
-        # self.pt_list = pt_list if pt_list is not None else self.randomize_pt_list()
         self.pt_list = pt_list
-
-    # def randomize_pt_list(self):
-    #     if self.process.name[0] is 'F':
-    #         return np.random.randint(low=5, high=10, size=len(self.machine_list))
-    #     elif self.process.name[0] is 'P':
-    #         return np.random.randint(low=20, high=30, size=len(self.machine_list))
-
 
 
 

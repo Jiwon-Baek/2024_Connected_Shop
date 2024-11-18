@@ -25,7 +25,7 @@ class Source(object):
     """
     def __init__(self, _cfg, _env, _name, _model, _monitor, job_type,
                  IAT='exponential(1)', num_parts=float('inf'),
-                 solution = None):
+                 seq=None):
         self.env = _env
         # _ 언더바는 임시 또는 지역 변수로 사용하거나 접근제한을 나타냄(비공개, 내부용)
         self.cfg = _cfg
@@ -36,9 +36,9 @@ class Source(object):
         self.IAT = IAT  # Source가 생성하는 Part의 IAT(jobtype을 통한 Part 생성)
         self.num_parts = num_parts  # Source가 생성하는 Part의 갯수
 
+        self.seq = _seq
         self.rec = 0  # 현재까지 생성된 Part의 갯수를 기록하는 변수
         self.generated_parts = simpy.Store(_env, capacity=float('inf'))
-        self.aligned_queue = simpy.Store(_env, capacity=float('inf'))
         self.solution = solution
         self.put_event = self.env.event()
         self.generated_list = list()
@@ -46,7 +46,7 @@ class Source(object):
         self.WIP = 0
         # 생성된 부품을 임시로 저장하는 simpy.Store 객체
 
-        _env.process(self.generate())
+        _env.process(self.generate(self.seq))
         _env.process(self.to_next_process())
 
     # def align(self):
@@ -63,18 +63,25 @@ class Source(object):
         ### Yields:
             - `None`
         """
+
         # IAT에 따라 반복적으로 부품 생성하고 이를 generated_parts에 저장. 생성된 각 부품은 'Job' 객체로 생성. 부품에 대한 정보와 생성 이벤트가 monitor에 의해 기록.
         while self.rec < self.num_parts:
+
+            if self.seq is not None:
+                idx = self.seq[self.rec]
+            else:
+                idx = self.rec
+
             # yield self.env.timeout(self.IAT)
             if self.job_type.preset is not None:
-                iat = round(self.job_type.preset['Job_'+str(self.rec)]['IAT'])
-                print(str(self.env.now) +'\tJob_'+str(self.rec) + ' Generated!')
                 # iat = round(self.job_type.preset['Job_'+str(self.rec)]['IAT'],2)
-                yield self.env.timeout(iat)
+                # yield self.env.timeout(iat)
+                yield self.env.timeout(0)
             else:
                 yield self.env.timeout(0)
             # 1. Generate a Part Object
-            part = Job(self.model, env=self.env, job_type=self.job_type, idx=self.rec)
+            part = Job(self.model, env=self.env, job_type=self.job_type, idx=idx,
+                       release_date=self.job_type.preset['Job_'+str(idx)]['Created'])
             self.WIP += 1
             part.loc = self.name  # Update the part's current location
             self.monitor.record(self.env.now, self.name, machine=self.name,
