@@ -23,7 +23,7 @@ class Configure:
         self.CONSOLE_MODE = False
 
         # Visualization Variables
-        self.TITLE = "FJSP data structure"
+        self.TITLE = ""
         self.ylabel = 'Job'
         self.xlabel = 'Time'
 

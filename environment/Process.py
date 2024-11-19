@@ -401,7 +401,10 @@ class Process(object):
 
         # process time on the certain machine이 list로 주어진 경우 vs. 단일 값으로 주어진 경우
         if isinstance(operation.process_time, list):
-            process_time = operation.process_time[least_remaining]
+            if len(operation.process_time)==1:
+                process_time = operation.process_time[0]
+            else:
+                process_time = operation.process_time[least_remaining]
         elif isinstance(operation.process_time, np.ndarray):
             process_time = operation.process_time[least_remaining]
         else:

@@ -25,7 +25,7 @@ class Source(object):
     """
     def __init__(self, _cfg, _env, _name, _model, _monitor, job_type,
                  IAT='exponential(1)', num_parts=float('inf'),
-                 seq=None):
+                 _seq=None):
         self.env = _env
         # _ 언더바는 임시 또는 지역 변수로 사용하거나 접근제한을 나타냄(비공개, 내부용)
         self.cfg = _cfg
@@ -39,14 +39,13 @@ class Source(object):
         self.seq = _seq
         self.rec = 0  # 현재까지 생성된 Part의 갯수를 기록하는 변수
         self.generated_parts = simpy.Store(_env, capacity=float('inf'))
-        self.solution = solution
         self.put_event = self.env.event()
         self.generated_list = list()
         self.num_sent = 0
         self.WIP = 0
         # 생성된 부품을 임시로 저장하는 simpy.Store 객체
 
-        _env.process(self.generate(self.seq))
+        _env.process(self.generate())
         _env.process(self.to_next_process())
 
     # def align(self):

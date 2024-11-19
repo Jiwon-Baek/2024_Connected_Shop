@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 if __name__ == "__main__":
     info = dict()
-    data = pd.read_csv('data/Taillard_1.csv', header=None).to_numpy()
+    data = pd.read_csv('Taillard_1.csv', header=None).to_numpy()
 
     for i in range(1): # 1세트 만듦
         info[str(i)] = dict()
@@ -33,5 +33,5 @@ if __name__ == "__main__":
             info[str(i)]['Job_'+str(j)]=d
 
     # _data.json 파일에 딕셔너리 형태로 info 저장
-    with open("data/data.json", 'w') as f:
+    with open("data.json", 'w') as f:
         json.dump(info, f, indent='\t')
