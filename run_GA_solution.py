@@ -104,7 +104,7 @@ def run_simulation(filepath, num_PM, seq=None, show_gantt=False, record_wip=Fals
     # 5. 시뮬레이션 실행
     env.run(1e5)
     # 6. 후처리를 위한 이벤트 로그 저장
-    monitor.save_event()
+    # monitor.save_event()
 
     makespan = model['Sink'].last_arrival
 
@@ -143,8 +143,12 @@ if __name__ == '__main__':
     #                           False,
     #                           False,
     #                           False)
-    makespan = run_simulation('data\\Debug.json',
-                              2,[1,3,4,0,2],
+
+    optimal = [58, 90, 42, 31, 50, 74, 39, 38, 29, 62, 40, 15, 86, 63, 13, 44, 76, 75, 49, 34, 92, 70, 71, 53, 78, 21, 9, 16, 85, 46, 81, 96, 33, 24, 4, 41, 25, 18, 28, 67, 45, 35, 83, 17, 43, 19, 3, 69, 12, 2, 64, 79, 73, 37, 7, 48, 97, 52, 47, 20, 60, 82, 65, 94, 51, 87, 27, 72, 26, 23, 11, 8, 100, 98, 77, 54, 6, 10, 56, 93, 91, 57, 22, 55, 59, 99, 80, 68, 95, 88, 89, 36, 66, 61, 32, 14, 30, 5, 1, 84]
+    optimal = [job - 1 for job in optimal]
+
+    makespan = run_simulation('data\\data_Taillard.json',
+                              2,optimal,
                               True,
                               False,
                               False)
