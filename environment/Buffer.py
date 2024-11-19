@@ -1,15 +1,17 @@
 import simpy
 
 class Buffer(object):
-    def __init__(self, _cfg, _env, _name, _model, _monitor):
+    def __init__(self, _cfg, _env, _name, _model, _monitor, _capacity=float('inf')):
         self.env = _env
         # _ 언더바는 임시 또는 지역 변수로 사용하거나 접근제한을 나타냄(비공개, 내부용)
         self.cfg = _cfg
         self.name = _name  # 해당 Buffer의 이름
         self.model = _model
         self.monitor = _monitor
-        self.availability = simpy.FilterStore(_env, capacity=float('inf'))
-        self.buffer = simpy.Store(_env, capacity=float('inf'))  # 10 is an arbitrary number
+        # self.availability = simpy.FilterStore(_env, capacity=float('inf'))
+        # self.buffer = simpy.Store(_env, capacity=float('inf'))  # 10 is an arbitrary number
+        self.availability = simpy.FilterStore(_env, capacity=_capacity)
+        self.buffer = simpy.Store(_env, capacity=_capacity)  # 10 is an arbitrary number
         self.WIP = 0
 
         # _env.process(self.to_next_process())

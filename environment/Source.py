@@ -25,7 +25,7 @@ class Source(object):
     """
     def __init__(self, _cfg, _env, _name, _model, _monitor, job_type,
                  IAT='exponential(1)', num_parts=float('inf'),
-                 _seq=None):
+                 _seq=None, capacity=float('inf')):
         self.env = _env
         # _ 언더바는 임시 또는 지역 변수로 사용하거나 접근제한을 나타냄(비공개, 내부용)
         self.cfg = _cfg
@@ -38,7 +38,8 @@ class Source(object):
 
         self.seq = _seq
         self.rec = 0  # 현재까지 생성된 Part의 갯수를 기록하는 변수
-        self.generated_parts = simpy.Store(_env, capacity=float('inf'))
+        self.generated_parts = simpy.Store(_env, capacity=capacity)
+        # self.generated_parts = simpy.Store(_env, capacity=float('inf'))
         self.put_event = self.env.event()
         self.generated_list = list()
         self.num_sent = 0
@@ -91,7 +92,7 @@ class Source(object):
             # 2. Update the number of parts generates
             # so that the Source would stop after generating a certain amount of parts
 
-            self.generated_parts.put(part)
+            yield self.generated_parts.put(part)
             # self.put_event.succeed()
             self.generated_list.append(copy.deepcopy(self.rec))
 

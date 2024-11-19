@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import json
 import copy
-from MIO_PFSP import get_MIO_individual
+from MIO_PFSP import get_MIO_individual, get_std_individual
 from run_GA_solution import run_simulation
 from GA import initialize, swap_neighbor_mutation, swap_mutation, PMXcrossover, reproduction
 
@@ -104,9 +104,10 @@ if __name__ == '__main__':
     now = datetime.now()
     subfix = now.strftime('%Y-%m-%d-%H-%M-%S')
     np.random.seed(42)
-    num_generation = 20
+    num_generation = 100
 
     mio = get_MIO_individual('data\\data_Taillard.json')
+    std = get_std_individual('data\\data_Taillard.json')
     # 알고리즘 실행
     mio_population, mio_top_individual, mio_top_fitness_record = run_GA('data\\data_Taillard.json',
                                                                         _num_blocks=100,
@@ -123,7 +124,16 @@ if __name__ == '__main__':
                                                                               _num_elite=5,
                                                                               _num_generation=num_generation,
                                                                               _p_crossover=0.9,
-                                                                              _p_mutation=0.9, )
+                                                                              _p_mutation=0.9)
+
+    std_population, std_top_individual, std_top_fitness_record = run_GA('data\\data_Taillard.json',
+                                                                              _num_blocks=100,
+                                                                              _num_population=100,
+                                                                              _num_elite=5,
+                                                                              _num_generation=num_generation,
+                                                                              _p_crossover=0.9,
+                                                                              _p_mutation=0.9,
+                                                                        _mio=std)
     finish_time = time.time()
 
     makespan = run_simulation('data\\data_Taillard.json', 2,
@@ -135,10 +145,14 @@ if __name__ == '__main__':
     basic_makespan = run_simulation('data\\data_Taillard.json', 2,
                                                       basic_top_individual, False, False,
                                                       False)
+    std_makespan = run_simulation('data\\data_Taillard.json', 2,
+                                                      std_top_individual, False, False,
+                                                      False)
     print("Time:", finish_time - start_time)
     print("MIO Makespan:",makespan)
     print("MIO GA Best Makespan:",mio_makespan)
     print("Basic GA Best Makespan:",basic_makespan)
+    print("STD GA Best Makespan:",std_makespan)
 
     # with open('GA_result(Basic)_{0}.csv'.format(subfix), 'w', newline='') as f:
     #     # using csv.writer method from CSV package
@@ -161,16 +175,19 @@ if __name__ == '__main__':
     plt.rc('figure', titlesize=BIGGER_SIZE)  # fontsize of the figure title
 
     plt.figure(figsize=(12, 6))
-    plt.plot(mio_top_fitness_record, marker='o', linestyle='-', color='blue',
-             label='MIO GA')
+
     plt.plot(basic_top_fitness_record, marker='o', linestyle='-', color='red',
              label='Basic GA')
+    plt.plot(mio_top_fitness_record, marker='o', linestyle='-', color='blue',
+             label='Rank Initialization')
+    plt.plot(std_top_fitness_record, marker='o', linestyle='-', color='green',
+             label='Variance Initialization')
 
     # 축 설정 및 레이블
     plt.xlabel('Generation')
     plt.ylabel('Makespan')
     plt.title('Summary of Evolutionary Process')
-    plt.legend(loc='upper right', ncol=2)
+    plt.legend(loc='upper right', ncol=1)
     plt.grid(True)
     plt.xticks(fontsize=18)
     # 그래프 표시

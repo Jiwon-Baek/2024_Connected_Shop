@@ -50,6 +50,7 @@ def get_MIO_individual(filepath):
         sorted_keys.append(int(job_key.split('_')[-1]))
 
     return sorted_keys
+
 def calculate_standard_deviation(data):
     # 평균 계산
     mean = sum(data) / len(data)
@@ -60,6 +61,7 @@ def calculate_standard_deviation(data):
     # 표준편차 계산
     std_dev = math.sqrt(variance)
     return std_dev
+
 def get_std_individual(filepath):
     with open(filepath, 'r') as f:
         data = json.load(f)
@@ -71,32 +73,14 @@ def get_std_individual(filepath):
     for job_key, job_data in data.items():
         processing_times = job_data["processing_time"][0]
         std = calculate_standard_deviation(processing_times)
+        job_data["std"] = std
 
-        for index, time in enumerate(processing_times):
-            if index not in process_times_by_index:
-                process_times_by_index[index] = []
-            process_times_by_index[index].append(time)
-
-    # # 결과 출력
-    # for index, times in process_times_by_index.items():
-    #     print(f"Processing time at index {index}: {times}")
-
-    for job_key, job_data in data.items():
-        target = job_data["processing_time"][0]
-        job_data["MIO Point"] = 0.0
-        for idx, t in enumerate(target):
-            rank =  get_rank_of_value(process_times_by_index[idx], t)
-
-            job_data["MIO Point"] += rank
-            # print(job_key,"의 {0}번째 공정의 시간이 {1}중에 {2}순위였으므로 MIO point가{3}만큼 증가하여{4}가 되었습니다.".format(
-            #     idx, process_times_by_index[idx], rank, rank, job_data["MIO Point"]
-            # ))
     # MIO Point 값에 따라 정렬
-    sorted_jobs = sorted(data.items(), key=lambda x: (x[1]["MIO Point"], int(x[0].split('_')[-1])))
+    sorted_jobs = sorted(data.items(), key=lambda x: (x[1]["std"], int(x[0].split('_')[-1])), reverse=False)
     sorted_keys = []
     # 정렬된 결과 출력
     for job_key, job_data in sorted_jobs:
-        print(f"{job_key}: MIO Point = {job_data['MIO Point']}")
+        print(f"{job_key}: std Point = {job_data['std']}")
         sorted_keys.append(int(job_key.split('_')[-1]))
 
     return sorted_keys
@@ -106,9 +90,16 @@ if __name__ == "__main__":
     from run_GA_solution import run_simulation
     mio = get_MIO_individual("data\\data_GA.json")
     print(mio)
+    std = get_std_individual("data\\data_GA.json")
+    print(std)
 
     makespan = run_simulation('data\\data_GA.json',
-                              2,mio,
+                              3,mio,
+                              False,
+                              False,
+                              False)
+    std_makespan = run_simulation('data\\data_GA.json',
+                              3, std,
                               False,
                               False,
                               False)

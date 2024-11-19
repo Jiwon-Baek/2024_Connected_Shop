@@ -22,7 +22,9 @@ def count_WIP(env, WIP_list, process):
         WIP_list.append(process.WIP)
         yield env.timeout(1)
 
-def run_simulation(filepath, num_PM, seq=None, show_gantt=False, record_wip=False, save_wip=False):
+def run_simulation(filepath, num_PM, seq=None,
+                   source_capacity = float('inf'), buffer_capacity=float('inf'),
+                   show_gantt=False, record_wip=False, save_wip=False):
     with open(filepath, 'r') as f:
         data = json.load(f)
 
@@ -52,7 +54,7 @@ def run_simulation(filepath, num_PM, seq=None, show_gantt=False, record_wip=Fals
             model[p_name] = Process(cfg, env, p_name, model, monitor, None,
                                     _machine_list=m_list)
 
-    model['Buffer'] = Buffer(cfg, env, 'Buffer', model, monitor)
+    model['Buffer'] = Buffer(cfg, env, 'Buffer', model, monitor, _capacity=buffer_capacity)
 
     """ 변하지 않는 값 정의 """
     jobtype = JobType(idx=0, name='Part', preset=data)
@@ -88,8 +90,9 @@ def run_simulation(filepath, num_PM, seq=None, show_gantt=False, record_wip=Fals
 
     # 4-3. Source 객체 생성
     if seq is not None:
-        model['Source'] = Source(cfg, env, 'Source', model, monitor, job_type=jobtype, IAT=0, num_parts=num_blocks,
-                             _seq=seq)
+        model['Source'] = Source(cfg, env, 'Source', model, monitor,
+                                 job_type=jobtype, IAT=0, num_parts=num_blocks,_seq=seq,
+                                 capacity = source_capacity)
     else:
         model['Source'] = Source(cfg, env, 'Source', model, monitor, job_type=jobtype, IAT=0, num_parts=num_blocks)
     # 4-4. sink 생성
@@ -125,7 +128,7 @@ def run_simulation(filepath, num_PM, seq=None, show_gantt=False, record_wip=Fals
             plt.xlabel('Time')
             plt.ylabel('# of WIP')
             plt.title('Stock level / machine = (5,%d)' % num_PM)
-            plt.savefig(filepath.split('.')[0] + '_' + str(num_PM) + '_WIP.png')
+            plt.savefig(filepath.split('.')[0] + '_' + str(num_PM) + '_' + str(source_capacity) + '_' + str(buffer_capacity) + '_WIP.png')
             plt.clf()
             plt.close()
             if isinstance(makespan, float):
@@ -147,10 +150,15 @@ if __name__ == '__main__':
     optimal = [58, 90, 42, 31, 50, 74, 39, 38, 29, 62, 40, 15, 86, 63, 13, 44, 76, 75, 49, 34, 92, 70, 71, 53, 78, 21, 9, 16, 85, 46, 81, 96, 33, 24, 4, 41, 25, 18, 28, 67, 45, 35, 83, 17, 43, 19, 3, 69, 12, 2, 64, 79, 73, 37, 7, 48, 97, 52, 47, 20, 60, 82, 65, 94, 51, 87, 27, 72, 26, 23, 11, 8, 100, 98, 77, 54, 6, 10, 56, 93, 91, 57, 22, 55, 59, 99, 80, 68, 95, 88, 89, 36, 66, 61, 32, 14, 30, 5, 1, 84]
     optimal = [job - 1 for job in optimal]
 
-    makespan = run_simulation('data\\data_Taillard.json',
-                              2,optimal,
-                              True,
-                              False,
-                              False)
-    print(makespan)
+    for n in range(1,4):
+        for s in range(10,31,10):
+            makespan = run_simulation('data\\data_GA.json',
+                                      n,
+                                      seq,
+                                      s,
+                                      float('inf'),
+                                      False,
+                                      True,
+                                      True)
+            print("Machine:",n,"\tSource:",s,"\tMakespan:",makespan[0])
     print()

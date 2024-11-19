@@ -1,0 +1,381 @@
+,Time,Event,Part,Process,Machine
+0,0,Part1 Created,Part_0,Source,
+1,0,Part2 Created,Part_1,Source,
+2,0,Routing Start,Part_0,Source,
+3,0,Part3 Created,Part_2,Source,
+4,0,Part4 Created,Part_3,Source,
+5,0,Routing Finished,Part_0,Source,
+6,0,Part transferred from Source,Part_0,FS_0,
+7,0,Part5 Created,Part_4,Source,
+8,0,Routing Start,Part_1,Source,
+9,0,Part6 Created,Part_5,Source,
+10,0,Started,Part_0,FS_0,M0
+11,0,Part7 Created,Part_6,Source,
+12,0,Part8 Created,Part_7,Source,
+13,0,Part9 Created,Part_8,Source,
+14,0,Part10 Created,Part_9,Source,
+15,0,Part11 Created,Part_10,Source,
+16,0,Part12 Created,Part_11,Source,
+17,0,Part13 Created,Part_12,Source,
+18,0,Part14 Created,Part_13,Source,
+19,0,Part15 Created,Part_14,Source,
+20,0,Part16 Created,Part_15,Source,
+21,0,Part17 Created,Part_16,Source,
+22,0,Part18 Created,Part_17,Source,
+23,0,Part19 Created,Part_18,Source,
+24,0,Part20 Created,Part_19,Source,
+25,20,Finished,Part_0,FS_0,M0
+26,20,Started,Part_0,FS_1,M1
+27,20,Routing Finished,Part_1,Source,
+28,20,Part transferred from Source,Part_1,FS_0,
+29,20,Routing Start,Part_2,Source,
+30,20,Started,Part_1,FS_0,M0
+31,30,Finished,Part_0,FS_1,M1
+32,30,Started,Part_0,FS_2,M2
+33,44,Finished,Part_1,FS_0,M0
+34,44,Started,Part_1,FS_1,M1
+35,44,Routing Finished,Part_2,Source,
+36,44,Part transferred from Source,Part_2,FS_0,
+37,44,Routing Start,Part_3,Source,
+38,44,Started,Part_2,FS_0,M0
+39,56,Finished,Part_0,FS_2,M2
+40,56,Finished,Part_1,FS_1,M1
+41,56,Started,Part_0,FS_3,M3
+42,56,Started,Part_1,FS_2,M2
+43,59,Finished,Part_2,FS_0,M0
+44,59,Started,Part_2,FS_1,M1
+45,59,Routing Finished,Part_3,Source,
+46,59,Part transferred from Source,Part_3,FS_0,
+47,59,Routing Start,Part_4,Source,
+48,59,Started,Part_3,FS_0,M0
+49,69,Finished,Part_1,FS_2,M2
+50,72,Finished,Part_2,FS_1,M1
+51,75,Finished,Part_0,FS_3,M3
+52,75,Started,Part_0,FS_4,M4
+53,75,Started,Part_1,FS_3,M3
+54,75,Started,Part_2,FS_2,M2
+55,87,Finished,Part_3,FS_0,M0
+56,87,Started,Part_3,FS_1,M1
+57,87,Routing Finished,Part_4,Source,
+58,87,Part transferred from Source,Part_4,FS_0,
+59,87,Routing Start,Part_5,Source,
+60,87,Started,Part_4,FS_0,M0
+61,94,Finished,Part_0,FS_4,M4
+62,94,Started,Part_0,Buffer,Buffer
+63,94,Finished,Part_0,Buffer,Buffer
+64,94,Started,Part_0,PMS,M5
+65,96,Finished,Part_2,FS_2,M2
+66,99,Finished,Part_1,FS_3,M3
+67,99,Started,Part_1,FS_4,M4
+68,99,Started,Part_2,FS_3,M3
+69,109,Finished,Part_4,FS_0,M0
+70,110,Finished,Part_1,FS_4,M4
+71,110,Started,Part_1,Buffer,Buffer
+72,110,Finished,Part_1,Buffer,Buffer
+73,110,Started,Part_1,PMS,M6
+74,114,Finished,Part_3,FS_1,M1
+75,114,Started,Part_3,FS_2,M2
+76,114,Started,Part_4,FS_1,M1
+77,114,Routing Finished,Part_5,Source,
+78,114,Part transferred from Source,Part_5,FS_0,
+79,114,Routing Start,Part_6,Source,
+80,114,Started,Part_5,FS_0,M0
+81,117,Finished,Part_2,FS_3,M3
+82,117,Started,Part_2,FS_4,M4
+83,130,Finished,Part_5,FS_0,M0
+84,131,Finished,Part_4,FS_1,M1
+85,134,Finished,Part_2,FS_4,M4
+86,134,Started,Part_2,Buffer,Buffer
+87,134,Finished,Part_2,Buffer,Buffer
+88,134,Started,Part_2,PMS,M7
+89,141,Finished,Part_3,FS_2,M2
+90,141,Started,Part_3,FS_3,M3
+91,141,Started,Part_4,FS_2,M2
+92,141,Started,Part_5,FS_1,M1
+93,141,Routing Finished,Part_6,Source,
+94,141,Part transferred from Source,Part_6,FS_0,
+95,141,Routing Start,Part_7,Source,
+96,141,Started,Part_6,FS_0,M0
+97,157,Finished,Part_3,FS_3,M3
+98,157,Started,Part_3,FS_4,M4
+99,161,Finished,Part_5,FS_1,M1
+100,165,Finished,Part_4,FS_2,M2
+101,165,Started,Part_4,FS_3,M3
+102,165,Started,Part_5,FS_2,M2
+103,166,Finished,Part_6,FS_0,M0
+104,166,Started,Part_6,FS_1,M1
+105,166,Routing Finished,Part_7,Source,
+106,166,Part transferred from Source,Part_7,FS_0,
+107,166,Routing Start,Part_8,Source,
+108,166,Started,Part_7,FS_0,M0
+109,168,Finished,Part_3,FS_4,M4
+110,168,Started,Part_3,Buffer,Buffer
+111,179,Finished,Part_5,FS_2,M2
+112,180,Finished,Part_0,PMS,M5
+113,180,Finished,Part_6,FS_1,M1
+114,180,Completed,Part_0,Sink,
+115,180,Finished,Part_3,Buffer,Buffer
+116,180,Started,Part_3,PMS,M5
+117,184,Finished,Part_4,FS_3,M3
+118,184,Started,Part_4,FS_4,M4
+119,184,Started,Part_5,FS_3,M3
+120,184,Started,Part_6,FS_2,M2
+121,193,Finished,Part_1,PMS,M6
+122,193,Finished,Part_7,FS_0,M0
+123,193,Completed,Part_1,Sink,
+124,193,Started,Part_7,FS_1,M1
+125,193,Routing Finished,Part_8,Source,
+126,193,Part transferred from Source,Part_8,FS_0,
+127,193,Routing Start,Part_9,Source,
+128,193,Started,Part_8,FS_0,M0
+129,195,Finished,Part_6,FS_2,M2
+130,201,Finished,Part_5,FS_3,M3
+131,203,Finished,Part_4,FS_4,M4
+132,203,Started,Part_4,Buffer,Buffer
+133,203,Finished,Part_4,Buffer,Buffer
+134,203,Started,Part_5,FS_4,M4
+135,203,Started,Part_4,PMS,M6
+136,203,Started,Part_6,FS_3,M3
+137,217,Finished,Part_7,FS_1,M1
+138,217,Started,Part_7,FS_2,M2
+139,222,Finished,Part_8,FS_0,M0
+140,222,Started,Part_8,FS_1,M1
+141,222,Routing Finished,Part_9,Source,
+142,222,Part transferred from Source,Part_9,FS_0,
+143,222,Routing Start,Part_10,Source,
+144,222,Started,Part_9,FS_0,M0
+145,223,Finished,Part_2,PMS,M7
+146,223,Completed,Part_2,Sink,
+147,227,Finished,Part_5,FS_4,M4
+148,227,Started,Part_5,Buffer,Buffer
+149,227,Finished,Part_5,Buffer,Buffer
+150,227,Started,Part_5,PMS,M7
+151,229,Finished,Part_6,FS_3,M3
+152,229,Started,Part_6,FS_4,M4
+153,233,Finished,Part_7,FS_2,M2
+154,233,Started,Part_7,FS_3,M3
+155,237,Finished,Part_9,FS_0,M0
+156,242,Finished,Part_8,FS_1,M1
+157,242,Started,Part_8,FS_2,M2
+158,242,Started,Part_9,FS_1,M1
+159,242,Routing Finished,Part_10,Source,
+160,242,Part transferred from Source,Part_10,FS_0,
+161,242,Routing Start,Part_11,Source,
+162,242,Started,Part_10,FS_0,M0
+163,245,Finished,Part_6,FS_4,M4
+164,245,Started,Part_6,Buffer,Buffer
+165,253,Finished,Part_7,FS_3,M3
+166,253,Started,Part_7,FS_4,M4
+167,256,Finished,Part_10,FS_0,M0
+168,257,Finished,Part_9,FS_1,M1
+169,269,Finished,Part_8,FS_2,M2
+170,269,Started,Part_8,FS_3,M3
+171,269,Started,Part_9,FS_2,M2
+172,269,Started,Part_10,FS_1,M1
+173,269,Routing Finished,Part_11,Source,
+174,269,Part transferred from Source,Part_11,FS_0,
+175,269,Routing Start,Part_12,Source,
+176,269,Started,Part_11,FS_0,M0
+177,272,Finished,Part_3,PMS,M5
+178,272,Completed,Part_3,Sink,
+179,272,Finished,Part_6,Buffer,Buffer
+180,272,Started,Part_6,PMS,M5
+181,277,Finished,Part_7,FS_4,M4
+182,277,Started,Part_7,Buffer,Buffer
+183,286,Finished,Part_10,FS_1,M1
+184,292,Finished,Part_11,FS_0,M0
+185,295,Finished,Part_9,FS_2,M2
+186,297,Finished,Part_8,FS_3,M3
+187,297,Started,Part_8,FS_4,M4
+188,297,Started,Part_9,FS_3,M3
+189,297,Started,Part_10,FS_2,M2
+190,297,Started,Part_11,FS_1,M1
+191,297,Routing Finished,Part_12,Source,
+192,297,Part transferred from Source,Part_12,FS_0,
+193,297,Routing Start,Part_13,Source,
+194,297,Started,Part_12,FS_0,M0
+195,301,Finished,Part_4,PMS,M6
+196,301,Completed,Part_4,Sink,
+197,301,Finished,Part_7,Buffer,Buffer
+198,301,Started,Part_7,PMS,M6
+199,310,Finished,Part_11,FS_1,M1
+200,312,Finished,Part_10,FS_2,M2
+201,314,Finished,Part_12,FS_0,M0
+202,318,Finished,Part_8,FS_4,M4
+203,318,Started,Part_8,Buffer,Buffer
+204,323,Finished,Part_5,PMS,M7
+205,323,Completed,Part_5,Sink,
+206,323,Finished,Part_8,Buffer,Buffer
+207,323,Started,Part_8,PMS,M7
+208,325,Finished,Part_9,FS_3,M3
+209,325,Started,Part_9,FS_4,M4
+210,325,Started,Part_10,FS_3,M3
+211,325,Started,Part_11,FS_2,M2
+212,325,Started,Part_12,FS_1,M1
+213,325,Routing Finished,Part_13,Source,
+214,325,Part transferred from Source,Part_13,FS_0,
+215,325,Routing Start,Part_14,Source,
+216,325,Started,Part_13,FS_0,M0
+217,341,Finished,Part_9,FS_4,M4
+218,341,Started,Part_9,Buffer,Buffer
+219,343,Finished,Part_12,FS_1,M1
+220,343,Finished,Part_13,FS_0,M0
+221,347,Finished,Part_10,FS_3,M3
+222,347,Started,Part_10,FS_4,M4
+223,351,Finished,Part_11,FS_2,M2
+224,351,Started,Part_11,FS_3,M3
+225,351,Started,Part_12,FS_2,M2
+226,351,Started,Part_13,FS_1,M1
+227,351,Routing Finished,Part_14,Source,
+228,351,Part transferred from Source,Part_14,FS_0,
+229,351,Routing Start,Part_15,Source,
+230,351,Started,Part_14,FS_0,M0
+231,356,Finished,Part_6,PMS,M5
+232,356,Completed,Part_6,Sink,
+233,356,Finished,Part_9,Buffer,Buffer
+234,356,Started,Part_9,PMS,M5
+235,365,Finished,Part_13,FS_1,M1
+236,367,Finished,Part_14,FS_0,M0
+237,368,Finished,Part_10,FS_4,M4
+238,368,Started,Part_10,Buffer,Buffer
+239,371,Finished,Part_12,FS_2,M2
+240,373,Finished,Part_11,FS_3,M3
+241,373,Started,Part_11,FS_4,M4
+242,373,Started,Part_12,FS_3,M3
+243,373,Started,Part_13,FS_2,M2
+244,373,Started,Part_14,FS_1,M1
+245,373,Routing Finished,Part_15,Source,
+246,373,Part transferred from Source,Part_15,FS_0,
+247,373,Routing Start,Part_16,Source,
+248,373,Started,Part_15,FS_0,M0
+249,391,Finished,Part_14,FS_1,M1
+250,393,Finished,Part_12,FS_3,M3
+251,393,Finished,Part_15,FS_0,M0
+252,397,Finished,Part_7,PMS,M6
+253,397,Completed,Part_7,Sink,
+254,397,Finished,Part_10,Buffer,Buffer
+255,397,Started,Part_10,PMS,M6
+256,399,Finished,Part_11,FS_4,M4
+257,399,Started,Part_11,Buffer,Buffer
+258,399,Started,Part_12,FS_4,M4
+259,402,Finished,Part_13,FS_2,M2
+260,402,Started,Part_13,FS_3,M3
+261,402,Started,Part_14,FS_2,M2
+262,402,Started,Part_15,FS_1,M1
+263,402,Routing Finished,Part_16,Source,
+264,402,Part transferred from Source,Part_16,FS_0,
+265,402,Routing Start,Part_17,Source,
+266,402,Started,Part_16,FS_0,M0
+267,417,Finished,Part_8,PMS,M7
+268,417,Completed,Part_8,Sink,
+269,417,Finished,Part_11,Buffer,Buffer
+270,417,Started,Part_11,PMS,M7
+271,423,Finished,Part_14,FS_2,M2
+272,424,Finished,Part_12,FS_4,M4
+273,424,Started,Part_12,Buffer,Buffer
+274,425,Finished,Part_16,FS_0,M0
+275,427,Finished,Part_15,FS_1,M1
+276,428,Finished,Part_13,FS_3,M3
+277,428,Started,Part_13,FS_4,M4
+278,428,Started,Part_14,FS_3,M3
+279,428,Started,Part_15,FS_2,M2
+280,428,Started,Part_16,FS_1,M1
+281,428,Routing Finished,Part_17,Source,
+282,428,Part transferred from Source,Part_17,FS_0,
+283,428,Routing Start,Part_18,Source,
+284,428,Started,Part_17,FS_0,M0
+285,443,Finished,Part_9,PMS,M5
+286,443,Finished,Part_13,FS_4,M4
+287,443,Completed,Part_9,Sink,
+288,443,Finished,Part_12,Buffer,Buffer
+289,443,Started,Part_13,Buffer,Buffer
+290,443,Started,Part_12,PMS,M5
+291,451,Finished,Part_14,FS_3,M3
+292,451,Finished,Part_15,FS_2,M2
+293,451,Started,Part_14,FS_4,M4
+294,451,Started,Part_15,FS_3,M3
+295,455,Finished,Part_16,FS_1,M1
+296,455,Started,Part_16,FS_2,M2
+297,456,Finished,Part_17,FS_0,M0
+298,456,Started,Part_17,FS_1,M1
+299,456,Routing Finished,Part_18,Source,
+300,456,Part transferred from Source,Part_18,FS_0,
+301,456,Routing Start,Part_19,Source,
+302,456,Started,Part_18,FS_0,M0
+303,464,Finished,Part_14,FS_4,M4
+304,464,Started,Part_14,Buffer,Buffer
+305,466,Finished,Part_18,FS_0,M0
+306,469,Finished,Part_16,FS_2,M2
+307,473,Finished,Part_15,FS_3,M3
+308,473,Started,Part_15,FS_4,M4
+309,473,Started,Part_16,FS_3,M3
+310,480,Finished,Part_10,PMS,M6
+311,480,Completed,Part_10,Sink,
+312,480,Finished,Part_13,Buffer,Buffer
+313,480,Started,Part_13,PMS,M6
+314,485,Finished,Part_17,FS_1,M1
+315,485,Started,Part_17,FS_2,M2
+316,485,Started,Part_18,FS_1,M1
+317,485,Routing Finished,Part_19,Source,
+318,485,Part transferred from Source,Part_19,FS_0,
+319,485,Started,Part_19,FS_0,M0
+320,489,Finished,Part_16,FS_3,M3
+321,499,Finished,Part_18,FS_1,M1
+322,502,Finished,Part_15,FS_4,M4
+323,502,Started,Part_15,Buffer,Buffer
+324,502,Started,Part_16,FS_4,M4
+325,507,Finished,Part_11,PMS,M7
+326,507,Finished,Part_17,FS_2,M2
+327,507,Completed,Part_11,Sink,
+328,507,Finished,Part_14,Buffer,Buffer
+329,507,Started,Part_17,FS_3,M3
+330,507,Started,Part_14,PMS,M7
+331,507,Started,Part_18,FS_2,M2
+332,508,Finished,Part_19,FS_0,M0
+333,508,Started,Part_19,FS_1,M1
+334,520,Finished,Part_16,FS_4,M4
+335,520,Started,Part_16,Buffer,Buffer
+336,524,Finished,Part_12,PMS,M5
+337,524,Completed,Part_12,Sink,
+338,524,Finished,Part_15,Buffer,Buffer
+339,524,Started,Part_15,PMS,M5
+340,526,Finished,Part_19,FS_1,M1
+341,531,Finished,Part_17,FS_3,M3
+342,531,Finished,Part_18,FS_2,M2
+343,531,Started,Part_17,FS_4,M4
+344,531,Started,Part_18,FS_3,M3
+345,531,Started,Part_19,FS_2,M2
+346,547,Finished,Part_18,FS_3,M3
+347,552,Finished,Part_19,FS_2,M2
+348,558,Finished,Part_17,FS_4,M4
+349,558,Started,Part_17,Buffer,Buffer
+350,558,Started,Part_18,FS_4,M4
+351,558,Started,Part_19,FS_3,M3
+352,560,Finished,Part_13,PMS,M6
+353,560,Completed,Part_13,Sink,
+354,560,Finished,Part_16,Buffer,Buffer
+355,560,Started,Part_16,PMS,M6
+356,573,Finished,Part_19,FS_3,M3
+357,577,Finished,Part_18,FS_4,M4
+358,577,Started,Part_18,Buffer,Buffer
+359,577,Started,Part_19,FS_4,M4
+360,593,Finished,Part_19,FS_4,M4
+361,593,Started,Part_19,Buffer,Buffer
+362,605,Finished,Part_15,PMS,M5
+363,605,Completed,Part_15,Sink,
+364,605,Finished,Part_17,Buffer,Buffer
+365,605,Started,Part_17,PMS,M5
+366,606,Finished,Part_14,PMS,M7
+367,606,Completed,Part_14,Sink,
+368,606,Finished,Part_18,Buffer,Buffer
+369,606,Started,Part_18,PMS,M7
+370,640,Finished,Part_16,PMS,M6
+371,640,Completed,Part_16,Sink,
+372,640,Finished,Part_19,Buffer,Buffer
+373,640,Started,Part_19,PMS,M6
+374,702,Finished,Part_17,PMS,M5
+375,702,Completed,Part_17,Sink,
+376,703,Finished,Part_18,PMS,M7
+377,703,Completed,Part_18,Sink,
+378,730,Finished,Part_19,PMS,M6
+379,730,Completed,Part_19,Sink,

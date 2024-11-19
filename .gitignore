@@ -1,10 +1,9 @@
 
 .idea/
-
-*.png
+validation/data/
 *.svg
-*.csv
 *.pt
+result/*.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
