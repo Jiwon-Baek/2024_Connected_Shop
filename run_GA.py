@@ -18,13 +18,13 @@ from MIO_PFSP import get_MIO_individual, get_std_individual
 from run_GA_solution import run_simulation
 from GA import initialize, swap_neighbor_mutation, swap_mutation, PMXcrossover, reproduction
 
-
 def calculate_fitness(_data, _individual):
     makespan = run_simulation(_data,
-                              3, _individual,
-                              False,
-                              False,
-                              False)
+                              3,
+                              seq = _individual,
+                              show_gantt=False,
+                              record_wip=False,
+                              save_wip=False)
     return makespan
 
 
@@ -103,7 +103,7 @@ if __name__ == '__main__':
 
     now = datetime.now()
     subfix = now.strftime('%Y-%m-%d-%H-%M-%S')
-    np.random.seed(42)
+    np.random.seed(2)
     num_generation = 100
 
     mio = get_MIO_individual('data\\data_Taillard.json')
@@ -137,27 +137,35 @@ if __name__ == '__main__':
     finish_time = time.time()
 
     makespan = run_simulation('data\\data_Taillard.json', 2,
-                                                      mio, False, False,
-                                                      False)
+                                                      mio, show_gantt=False,
+                              record_wip=False,
+                              save_wip=False)
     mio_makespan = run_simulation('data\\data_Taillard.json', 2,
-                                                      mio_top_individual, False, False,
-                                                      False)
+                                                      mio_top_individual, show_gantt=False,
+                              record_wip=False,
+                              save_wip=False)
     basic_makespan = run_simulation('data\\data_Taillard.json', 2,
-                                                      basic_top_individual, False, False,
-                                                      False)
+                                                      basic_top_individual,show_gantt=False,
+                              record_wip=False,
+                              save_wip=False)
     std_makespan = run_simulation('data\\data_Taillard.json', 2,
-                                                      std_top_individual, False, False,
-                                                      False)
+                                                      std_top_individual, show_gantt=False,
+                              record_wip=False,
+                              save_wip=False)
     print("Time:", finish_time - start_time)
     print("MIO Makespan:",makespan)
     print("MIO GA Best Makespan:",mio_makespan)
     print("Basic GA Best Makespan:",basic_makespan)
     print("STD GA Best Makespan:",std_makespan)
 
-    # with open('GA_result(Basic)_{0}.csv'.format(subfix), 'w', newline='') as f:
-    #     # using csv.writer method from CSV package
-    #     write = csv.writer(f)
-    #     write.writerow(top_individual)
+    with open('GA_result(Basic)_{0}.csv'.format(subfix), 'w', newline='') as f:
+        # using csv.writer method from CSV package
+        write = csv.writer(f)
+        # 데이터를 작성
+        write.writerow(["Basic"] + basic_top_individual.tolist())
+        write.writerow(["MIO"] + mio)
+        write.writerow(["Rank"] + mio_top_individual.tolist())
+        write.writerow(["Variance"] + std_top_individual.tolist())
 
     # 실제 데이터 사용 시 파일 읽기 등을 통해 `results` 데이터프레임을 채워주세요.
     # results = pd.read_csv('simulation_results.csv')

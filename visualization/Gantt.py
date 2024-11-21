@@ -39,7 +39,7 @@ COLOR_MAP = {
     9: '#7f8c8d'   # gray
 }
 
-def Gantt(cfg, result, num, printmode=True, writemode=False):
+def Gantt(cfg, result, num, printmode=True, writemode=False, keyword=None):
     df = result.iloc[0:num].copy()
 
     # 10 machine, converting 1~10 machine indices to 0~9
@@ -54,9 +54,19 @@ def Gantt(cfg, result, num, printmode=True, writemode=False):
 
     machine_list = df['Machine'].unique()
 
-    # TODO: 머신 열 순서대로 출력되도록.
+    # 제거할 원소 리스트
+    remove_items = ['M5', 'Buffer', 'Source']
+
+    # # TODO: 머신 열 순서대로 출력되도록.
+    # fig, ax = plt.subplots(1, figsize=(16 * 0.8, 9 * 0.8))
+    # ax.barh(df.Machine, df.Delta, left=df.Start, color=df.color, edgecolor='black')
+
+    # DataFrame에서 제거할 머신을 제외한 필터링
+    filtered_df = df[~df['Machine'].isin(remove_items)]
+
+    # 머신 열 순서대로 출력되도록
     fig, ax = plt.subplots(1, figsize=(16 * 0.8, 9 * 0.8))
-    ax.barh(df.Machine, df.Delta, left=df.Start, color=df.color, edgecolor='black')
+    ax.barh(filtered_df.Machine, filtered_df.Delta, left=filtered_df.Start, color=filtered_df.color, edgecolor='black')
 
     ##### LEGENDS #####
     legend_elements = [Patch(facecolor=COLOR_MAP[i], label=i) for i in COLOR_MAP]
@@ -71,7 +81,7 @@ def Gantt(cfg, result, num, printmode=True, writemode=False):
 
     # Save the figure as an image file
     if writemode:
-        fig.savefig(cfg.save_path + '/' + cfg.filename + '.png', format='png')
+        fig.savefig(cfg.save_path + '/' + cfg.filename + '_'+keyword+'.png', format='png')
 
     # Create a BytesIO object
     image_bytes_io = BytesIO()

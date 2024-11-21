@@ -22,12 +22,14 @@ def count_WIP(env, WIP_list, process):
         WIP_list.append(process.WIP)
         yield env.timeout(1)
 
-def run_simulation(filepath, num_PM, seq=None, show_gantt=False, save_wip=False):
+def run_simulation(filepath, num_PM, seq=None, show_gantt=False, save_wip=False,
+                   save_gantt = False, keyword = None):
     with open(filepath, 'r') as f:
         data = json.load(f)
 
 
-    num_blocks = 5
+    num_blocks = 20
+    # num_blocks = len(seq)
     # num_blocks = len(data)
     num_shops = len(data['Job_0']['Work'])
     num_machines_list = data['Job_0']['num_machine'] # [ [1,1,1,1,1],[3] ]
@@ -103,7 +105,8 @@ def run_simulation(filepath, num_PM, seq=None, show_gantt=False, save_wip=False)
     env.process(count_WIP(env, WIP_buffer, model['Buffer']))
 
     # 5. 시뮬레이션 실행
-    env.run(50)
+    env.run()
+    # env.run(2e5)
     # 6. 후처리를 위한 이벤트 로그 저장
     monitor.save_event()
 
@@ -113,7 +116,8 @@ def run_simulation(filepath, num_PM, seq=None, show_gantt=False, save_wip=False)
         machine_log = read_machine_log(cfg.filepath)
         # unity_log = generate_unity_log(cfg.filepath, num_blocks)
         # 7. 간트차트 출력
-        gantt = Gantt(cfg, machine_log, len(machine_log), printmode=True, writemode=False)
+        gantt = Gantt(cfg, machine_log, len(machine_log), printmode=True, writemode=save_gantt,
+                      keyword=keyword)
         gui = GUI(gantt)
 
     if save_wip:
@@ -135,6 +139,30 @@ def run_simulation(filepath, num_PM, seq=None, show_gantt=False, save_wip=False)
 
 
 if __name__ == '__main__':
-    makespan, wip_source, wip_buffer = run_simulation('data\\Debug.json', 3, [2,3,0,1,4], True, False)
+    import csv
+    filepath = "C:\\SNU EnSite\\2024_Connected_Shop\\GA_result(Basic)_2024-11-20-16-32-13.csv"
+
+    # 빈 딕셔너리 생성
+    result_dict = {}
+
+    # CSV 파일 읽기
+    with open(filepath, 'r', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        for row in reader:
+            # 첫 번째 요소를 key로, 나머지를 list로 저장
+            key = row[0]
+            values = list(map(int, row[1:]))  # 숫자 데이터를 정수형으로 변환
+            result_dict[key] = values
+
+    # mode = 'Variance'
+    # mode = 'Basic'
+    # mode = 'MIO'
+    mode = 'Rank'
+    makespan, wip_source, wip_buffer = run_simulation('data\\data_Taillard.json', 3,
+                                                      seq=result_dict[mode],
+                                                      show_gantt=True,
+                                                      save_wip=False,
+                                                      save_gantt=True,
+                                                      keyword=mode)
     print(makespan)
     print()
