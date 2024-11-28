@@ -1,0 +1,18 @@
+{
+    "keyword": "Test_seed0",
+    "timecode": "2024-11-28-23-57-52",
+    "data_name": "Taillard_1",
+    "num_blocks": 100,
+    "num_population": 10,
+    "num_generation": 3,
+    "num_elite": 5,
+    "p_crossover": 0.9,
+    "p_mutation": 0.9,
+    "random_seed": 0,
+    "Rank_time": 0.008969783782958984,
+    "Rank_makespan": 5876.0,
+    "Basic_time": 0.008970260620117188,
+    "Basic_makespan": 5883.0,
+    "Variance_time": 0.008972406387329102,
+    "Variance_makespan": 5948.0
+}

@@ -44,12 +44,14 @@ def get_MIO_individual(filepath):
     # MIO Point 값에 따라 정렬
     sorted_jobs = sorted(data.items(), key=lambda x: (x[1]["MIO Point"], int(x[0].split('_')[-1])))
     sorted_keys = []
+    rank_values = []
     # 정렬된 결과 출력
     for job_key, job_data in sorted_jobs:
         print(f"{job_key}: MIO Point = {job_data['MIO Point']}")
         sorted_keys.append(int(job_key.split('_')[-1]))
+        rank_values.append(job_data["MIO Point"])
 
-    return sorted_keys
+    return sorted_keys, rank_values
 
 def calculate_standard_deviation(data):
     # 평균 계산
@@ -78,12 +80,14 @@ def get_std_individual(filepath):
     # MIO Point 값에 따라 정렬
     sorted_jobs = sorted(data.items(), key=lambda x: (x[1]["std"], int(x[0].split('_')[-1])), reverse=False)
     sorted_keys = []
+    std_values = []
     # 정렬된 결과 출력
     for job_key, job_data in sorted_jobs:
         print(f"{job_key}: std Point = {job_data['std']}")
         sorted_keys.append(int(job_key.split('_')[-1]))
+        std_values.append(job_data["std"])
 
-    return sorted_keys
+    return sorted_keys, std_values
 
 
 if __name__ == "__main__":

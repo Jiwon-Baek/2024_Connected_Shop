@@ -1,0 +1,18 @@
+{
+    "keyword": "Validate_Taillard_1",
+    "timecode": "2024-11-29-00-50-06",
+    "data_name": "Taillard_1",
+    "num_blocks": 100,
+    "num_population": 100,
+    "num_generation": 500,
+    "num_elite": 5,
+    "p_crossover": 0.9,
+    "p_mutation": 0.9,
+    "random_seed": 4,
+    "Rank_time": 12.518413543701172,
+    "Rank_makespan": 5505.0,
+    "Basic_time": 12.504001379013062,
+    "Basic_makespan": 5527.0,
+    "Variance_time": 12.527911186218262,
+    "Variance_makespan": 5529.0
+}
