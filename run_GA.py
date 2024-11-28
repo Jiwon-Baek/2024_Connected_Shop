@@ -1,38 +1,28 @@
-from environment.Process import *
-from environment.Source import Source
-from environment.Sink import Sink
-from environment.Part import *
-from environment.Buffer import *
-from environment.Resource import Machine
-from environment.Monitor import Monitor
-from postprocessing.PostProcessing import *
+
 from visualization.Gantt import *
-from visualization.GUI import *
-from cfg_local import Configure
-import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
-import json
 import copy
 from MIO_PFSP import get_MIO_individual, get_std_individual
-from run_GA_solution import run_simulation
+from run_GA_solution import run_PFSP_simulation
 from GA import initialize, swap_neighbor_mutation, swap_mutation, PMXcrossover, reproduction
+import os
+import json
 
-def calculate_fitness(_data, _individual):
-    makespan = run_simulation(_data,
-                              3,
-                              seq = _individual,
-                              show_gantt=False,
-                              record_wip=False,
-                              save_wip=False)
+
+def calculate_fitness(filename, _individual):
+    makespan = run_PFSP_simulation(filename, _individual)
+    # makespan = run_simulation(filename, _individual)
     return makespan
 
 
+
+
+
 # 선택 함수 (selection): 엘리트와 룰렛 선택 방식
-def selection(_data, population, _num_elite, _num_roulette, _lower_bound=None):
+def selection(filename, population, _num_elite, _num_roulette, _lower_bound=None):
     fitness = []
     for i in range(len(population)):
-        fitness.append(calculate_fitness(_data, population[i]))
+        fitness.append(calculate_fitness(filename, population[i]))
 
     # Fitness 값을 기준으로 정렬된 index를 얻음 (작을수록 좋은 fit)
     rank = np.argsort(fitness)
@@ -74,7 +64,7 @@ def run_GA(_data, _num_blocks, _num_population=10, _num_elite=20,
     # population[0] = copy.deepcopy(np.array(mio))
     top_fitness = 0.0
     top_fitness_record = []
-    top_individual = None
+    top_individual_record = []
 
     while generations < _num_generation:
         # while top_fitness <= -1.0:
@@ -89,9 +79,10 @@ def run_GA(_data, _num_blocks, _num_population=10, _num_elite=20,
         population = reproduction(parents, _num_population, _num_elite=2,
                                   _p_crossover=0.7, _p_mutation=0.9, _crossover_length=3)
         top_fitness_record.append(top_fitness)
+        top_individual_record.append(np.copy(top_individual))
         print('Top Individual:', [round(t, 2) for t in top_individual[:10]], "...", round(top_fitness, 3))
 
-    return population, np.copy(top_individual), top_fitness_record
+    return population, top_individual_record, top_fitness_record
 
 
 if __name__ == '__main__':
@@ -100,40 +91,70 @@ if __name__ == '__main__':
     from datetime import datetime
 
     start_time = time.time()
-
     now = datetime.now()
+    keyword = "Convergence"
     subfix = now.strftime('%Y-%m-%d-%H-%M-%S')
     np.random.seed(2)
-    num_generation = 100
+    num_blocks = 100
+    num_population = 100
+    num_generation = 500
+    num_elite = 5
+    p_crossover = 0.9
+    p_mutation = 0.9
+    random_seed = 1
+
+    # Create folder name using keyword and subfix
+    folder_name = f"result\\{keyword}_{subfix}"
+    data = 'Taillard_1.csv'
+    config_dict = dict()
+    config_dict['keyword'] = keyword
+    config_dict['timecode'] = subfix
+    config_dict['num_blocks'] = num_blocks
+    config_dict['num_population'] = num_population
+    config_dict['num_generation'] = num_generation
+    config_dict['num_elite'] = num_elite
+    config_dict['p_crossover'] = p_crossover
+    config_dict['p_mutation'] = p_mutation
+    config_dict['random_seed'] = random_seed
+    config_dict
+    # Create folder
+    if not os.path.exists(folder_name):
+        os.makedirs(folder_name)
+    # Define the path where the JSON will be saved
+    config_json_path = os.path.join(folder_name, 'config.json')
+
+    # Save the dictionary as a JSON file
+    with open(config_json_path, 'w') as f:
+        json.dump(config_dict, f, indent=4)
 
     mio = get_MIO_individual('data\\data_Taillard.json')
     std = get_std_individual('data\\data_Taillard.json')
     # 알고리즘 실행
-    mio_population, mio_top_individual, mio_top_fitness_record = run_GA('data\\data_Taillard.json',
-                                                                        _num_blocks=100,
-                                                                        _num_population=100,
-                                                                        _num_elite=5,
+    mio_population, mio_top_individual_record, mio_top_fitness_record = run_GA('data\\data_Taillard.json',
+                                                                        _num_blocks=num_blocks,
+                                                                        _num_population=num_population,
+                                                                        _num_elite=num_elite,
                                                                         _num_generation=num_generation,
-                                                                        _p_crossover=0.9,
-                                                                        _p_mutation=0.9,
+                                                                        _p_crossover=p_crossover,
+                                                                        _p_mutation=p_mutation,
                                                                         _mio=mio)
 
-    basic_population, basic_top_individual, basic_top_fitness_record = run_GA('data\\data_Taillard.json',
-                                                                              _num_blocks=100,
-                                                                              _num_population=100,
-                                                                              _num_elite=5,
-                                                                              _num_generation=num_generation,
-                                                                              _p_crossover=0.9,
-                                                                              _p_mutation=0.9)
+    basic_population, basic_top_individual_record, basic_top_fitness_record = run_GA('data\\data_Taillard.json',
+                                                                        _num_blocks=num_blocks,
+                                                                        _num_population=num_population,
+                                                                        _num_elite=num_elite,
+                                                                        _num_generation=num_generation,
+                                                                        _p_crossover=p_crossover,
+                                                                        _p_mutation=p_mutation)
 
-    std_population, std_top_individual, std_top_fitness_record = run_GA('data\\data_Taillard.json',
-                                                                              _num_blocks=100,
-                                                                              _num_population=100,
-                                                                              _num_elite=5,
-                                                                              _num_generation=num_generation,
-                                                                              _p_crossover=0.9,
-                                                                              _p_mutation=0.9,
-                                                                        _mio=std)
+    std_population, std_top_individual_record, std_top_fitness_record = run_GA('data\\data_Taillard.json',
+                                                                                _num_blocks=num_blocks,
+                                                                                _num_population=num_population,
+                                                                                _num_elite=num_elite,
+                                                                                _num_generation=num_generation,
+                                                                                _p_crossover=p_crossover,
+                                                                                _p_mutation=p_mutation,
+                                                                                _mio=std)
     finish_time = time.time()
 
     makespan = run_simulation('data\\data_Taillard.json', 2,
@@ -141,15 +162,15 @@ if __name__ == '__main__':
                               record_wip=False,
                               save_wip=False)
     mio_makespan = run_simulation('data\\data_Taillard.json', 2,
-                                                      mio_top_individual, show_gantt=False,
+                                                      mio_top_individual_record[-1], show_gantt=False,
                               record_wip=False,
                               save_wip=False)
     basic_makespan = run_simulation('data\\data_Taillard.json', 2,
-                                                      basic_top_individual,show_gantt=False,
+                                                      basic_top_individual_record[-1],show_gantt=False,
                               record_wip=False,
                               save_wip=False)
     std_makespan = run_simulation('data\\data_Taillard.json', 2,
-                                                      std_top_individual, show_gantt=False,
+                                                      std_top_individual_record[-1], show_gantt=False,
                               record_wip=False,
                               save_wip=False)
     print("Time:", finish_time - start_time)
@@ -158,14 +179,14 @@ if __name__ == '__main__':
     print("Basic GA Best Makespan:",basic_makespan)
     print("STD GA Best Makespan:",std_makespan)
 
-    with open('GA_result(Basic)_{0}.csv'.format(subfix), 'w', newline='') as f:
-        # using csv.writer method from CSV package
-        write = csv.writer(f)
-        # 데이터를 작성
-        write.writerow(["Basic"] + basic_top_individual.tolist())
-        write.writerow(["MIO"] + mio)
-        write.writerow(["Rank"] + mio_top_individual.tolist())
-        write.writerow(["Variance"] + std_top_individual.tolist())
+    # with open('GA_result(Basic)_{0}.csv'.format(subfix), 'w', newline='') as f:
+    #     # using csv.writer method from CSV package
+    #     write = csv.writer(f)
+    #     # 데이터를 작성
+    #     write.writerow(["Basic"] + basic_top_individual.tolist())
+    #     write.writerow(["MIO"] + mio)
+    #     write.writerow(["Rank"] + mio_top_individual.tolist())
+    #     write.writerow(["Variance"] + std_top_individual.tolist())
 
     # 실제 데이터 사용 시 파일 읽기 등을 통해 `results` 데이터프레임을 채워주세요.
     # results = pd.read_csv('simulation_results.csv')
@@ -200,5 +221,5 @@ if __name__ == '__main__':
     plt.xticks(fontsize=18)
     # 그래프 표시
     # plt.show()
-    plt.savefig('GA_result(Basic)_{0}.png'.format(subfix), dpi=300)
+    plt.savefig('result\\GA_result(Basic)_{0}.png'.format(subfix), dpi=300)
     print()

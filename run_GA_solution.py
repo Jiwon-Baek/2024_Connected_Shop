@@ -22,6 +22,24 @@ def count_WIP(env, WIP_list, process):
         WIP_list.append(process.WIP)
         yield env.timeout(1)
 
+def run_PFSP_simulation(filename, sequence):
+    blocks = pd.read_csv(filename, header=None)
+    blocks = blocks.to_numpy()
+    if isinstance(sequence, list):
+        sequence = np.array(sequence)
+
+    num_of_blocks = blocks.shape[0]
+    num_of_process = blocks.shape[1]
+    temp = np.zeros((num_of_blocks + 1, num_of_process + 1))
+    for i in range(1, num_of_blocks + 1):
+        for j in range(1, num_of_process + 1):
+            if temp[i - 1, j] > temp[i, j - 1]:
+                temp[i, j] = temp[i - 1, j] + blocks[sequence[i - 1], j - 1]
+            else:
+                temp[i, j] = temp[i, j - 1] + blocks[sequence[i - 1], j - 1]
+    C_max = temp[num_of_blocks, num_of_process]
+    return C_max
+
 def run_simulation(filepath, num_PM, seq=None,
                    source_capacity = float('inf'), buffer_capacity=float('inf'),
                    show_gantt=False, record_wip=False, save_wip=False):
